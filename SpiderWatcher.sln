@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Frameworks And Drivers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{7827031B-2390-41CB-B656-9F257B753D15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7827031B-2390-41CB-B656-9F257B753D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7827031B-2390-41CB-B656-9F257B753D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7827031B-2390-41CB-B656-9F257B753D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7827031B-2390-41CB-B656-9F257B753D15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557} = {873389EA-684B-4BC4-8BDC-B8B9540420BB}
+		{7827031B-2390-41CB-B656-9F257B753D15} = {9647E938-26B0-4B53-85D5-E8139B0EDC0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8DD82D0-DBD3-4FFE-A401-775834DB5475}

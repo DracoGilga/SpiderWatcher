@@ -12,6 +12,6 @@ namespace Entities.Interface
         Task<IEnumerable<User>> ReadAllUsers();
         Task UpdatePasswordUser(User user);
         Task UpgradeUser(User user);
-        Task LoginUser(User user);
+        Task LoginUser(User user);         
     }
 }
