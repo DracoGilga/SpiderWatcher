@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Enterprice Business Rules", "1 Enterprice Business Rules", "{873389EA-684B-4BC4-8BDC-B8B9540420BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Aplication Business Rules", "2 Aplication Business Rules", "{9647E938-26B0-4B53-85D5-E8139B0EDC0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Interface Adapter", "3 Interface Adapter", "{2F104538-526B-4746-8047-1305AAEBE970}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Frameworks And Drivers", "4 Frameworks And Drivers", "{A72E5619-B6FD-43A0-BE2F-8F9261B22497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{818555D1-8FF5-4432-9A2B-DEAE9F3AD557} = {873389EA-684B-4BC4-8BDC-B8B9540420BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8DD82D0-DBD3-4FFE-A401-775834DB5475}
+	EndGlobalSection
+EndGlobal
