@@ -10,5 +10,6 @@ namespace Entities.Interface
         Task DeleteContent(Content content);
 
         Task<IEnumerable<Content>> ReadAllContents();
+        Task ViewContent(Content content);
     }
 }
