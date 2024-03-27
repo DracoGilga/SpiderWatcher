@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/Apiuv/apis/Api",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/desarrollouv/databases/SpiderWatcher",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:SpiderWatcherMSQL",
+      "dynamicId": null
+    }
+  }
+}

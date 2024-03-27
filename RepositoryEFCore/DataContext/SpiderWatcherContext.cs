@@ -13,7 +13,5 @@ namespace RepositoryEFCore.DataContext
         public DbSet<Content> Contents { get; set; }
         public DbSet<HistoryPlayback> HistoryPlaybacks { get; set; }
         public DbSet<User> Users { get; set; }
-
-       
     }
 }

@@ -1,4 +1,4 @@
-@Api_HostAddress = http://localhost:5131
+@Api_HostAddress = https://api20240327140719.azurewebsites.net/
 
 GET {{Api_HostAddress}}/weatherforecast/
 Accept: application/json
