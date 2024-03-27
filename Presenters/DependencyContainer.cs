@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Presenters.User;
-using System.Xml.Schema;
-using UseCasesPort.UserPort.Inputs;
 using UseCasesPort.UserPort.Outputs;
 
 namespace Presenters

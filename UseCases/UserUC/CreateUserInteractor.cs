@@ -24,20 +24,19 @@ namespace UseCases.UserUC
                 Email = user.Email,
                 Name = user.Name,
                 LastName = user.LastName,
-                AccountType = user.AccountType,
+                AccountType = false,
                 DateBirth = user.DateBirth,
                 UserName = user.UserName,
                 Password = user.Password,
                 Restore = false,
-                Confirmation = user.Confirmation
+                Confirmation = false
             };
 
             Repository.CreateUser(NewUser);
             await UnitOfWork.SaveChanges();
             await OutputPort.Handle(
-                new UsersDTO
+                new CreateUserDTO
                 {
-                    IdUser = NewUser.UserId,
                     Email = NewUser.Email,
                     Name = NewUser.Name,
                     LastName = NewUser.LastName,
@@ -45,7 +44,6 @@ namespace UseCases.UserUC
                     DateBirth = NewUser.DateBirth,
                     UserName = NewUser.UserName,
                     Password = NewUser.Password,
-                    Restore = NewUser.Restore,
                     Confirmation = NewUser.Confirmation
                 });
         }

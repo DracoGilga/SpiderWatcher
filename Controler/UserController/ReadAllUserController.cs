@@ -1,12 +1,12 @@
 ﻿using DTOs.UserDTO;
 using Microsoft.AspNetCore.Mvc;
-using Presenters;
+using Presenters.User;
 using UseCasesPort.UserPort.Inputs;
 using UseCasesPort.UserPort.Outputs;
 
 namespace Controler.UserController
 {
-    [Route("api / [Controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class ReadAllUserController
     {
@@ -18,10 +18,10 @@ namespace Controler.UserController
             (InputPort, OutputPort) = (inputPort, outputPort);
 
         [HttpGet]
-        public async Task<UsersDTO> ReadAllUsers()
+        public async Task<IEnumerable<UsersDTO>> ReadAllUsers()
         {
             await InputPort.Handle();
-            return ((IPresenter<UsersDTO>)OutputPort).Content;
+            return ((ReadAllUsersPresenter)OutputPort).Content;
         }
     }
 }

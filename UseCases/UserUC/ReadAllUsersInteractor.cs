@@ -15,19 +15,20 @@ namespace UseCases.UserUC
 
         public Task Handle()
         {
-            var Users = Repository.ReadAllUsers().Select(p => new UsersDTO
-            {
-                IdUser = p.UserId,
-                Email = p.Email,
-                Name = p.Name,
-                LastName = p.LastName,
-                AccountType = p.AccountType,
-                DateBirth = p.DateBirth,
-                UserName = p.UserName,
-                Password = p.Password,
-                Restore = p.Restore,
-                Confirmation = p.Confirmation
-            });
+            var Users = Repository.ReadAllUsers().Select(p => 
+                new UsersDTO
+                {
+                    IdUser = p.UserId,
+                    Email = p.Email,
+                    Name = p.Name,
+                    LastName = p.LastName,
+                    AccountType = p.AccountType,
+                    DateBirth = p.DateBirth,
+                    UserName = p.UserName,
+                    Password = p.Password,
+                    Restore = p.Restore,
+                    Confirmation = p.Confirmation
+                });
 
             OutputPort.Handle(Users);
             return Task.CompletedTask;

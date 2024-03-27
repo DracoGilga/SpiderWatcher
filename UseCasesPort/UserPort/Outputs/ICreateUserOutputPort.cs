@@ -4,6 +4,6 @@ namespace UseCasesPort.UserPort.Outputs
 {
     public interface ICreateUserOutputPort
     {
-        Task Handle(UsersDTO user);
+        Task Handle(CreateUserDTO user);
     }
 }

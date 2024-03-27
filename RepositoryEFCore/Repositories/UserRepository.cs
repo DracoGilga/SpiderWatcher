@@ -13,7 +13,7 @@ namespace RepositoryEFCore.Repositories
         public void CreateUser(User user) => Context.Add(user);
         public void DeleteUser(int id) => Context.Remove(ReadUser(id));
         public IEnumerable<User> ReadAllUsers() => 
-            Context.Users ?? null;
+            Context.Users.ToList();
         public User ReadUser(int id) => 
             Context.Users.FirstOrDefault(u => u.UserId == id) ?? null;
         public bool UpdatePasswordUser(User user) => 

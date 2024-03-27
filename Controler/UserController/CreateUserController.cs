@@ -6,7 +6,7 @@ using UseCasesPort.UserPort.Outputs;
 
 namespace Controler.UserController
 {
-    [Route("api / [Controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class CreateUserController
     {
@@ -18,10 +18,10 @@ namespace Controler.UserController
             (InputPort, OutputPort) = (inputPort, outputPort);
 
         [HttpPost]
-        public async Task<UsersDTO> CreateUser(CreateUserDTO userDTO)
+        public async Task<CreateUserDTO> CreateUser(CreateUserDTO userDTO)
         {
             await InputPort.Handle(userDTO);
-            return ((IPresenter<UsersDTO>)OutputPort).Content;
+            return ((IPresenter<CreateUserDTO>)OutputPort).Content;
         }
     }
 }
