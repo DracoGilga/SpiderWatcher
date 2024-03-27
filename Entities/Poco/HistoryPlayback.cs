@@ -2,9 +2,9 @@
 {
     public class HistoryPlayback
     {
-        public int IdHistory { get; set; }
-        public int IdUser { get; set; }
-        public int IdContent { get; set; }
+        public int HistoryPlaybackId { get; set; }
+        public int UserId { get; set; }
+        public int ContentId { get; set; }
         public TimeOnly PlaybackTime { get; set; }
         public DateOnly PlaybackDate { get; set; }
         public Content Content { get; set; }

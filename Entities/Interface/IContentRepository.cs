@@ -4,12 +4,12 @@ namespace Entities.Interface
 {
     public interface IContentRepository
     {
-        Task CreateContent(Content content);
-        Task<Content> ReadContent(int id);
-        Task UpdateContent(Content content);
-        Task DeleteContent(Content content);
+        void CreateContent(Content content);
+        Content ReadContent(int id);
+        bool UpdateContent(Content content);
+        void DeleteContent(Content content);
 
-        Task<IEnumerable<Content>> ReadAllContents();
-        Task ViewContent(Content content);
+        IEnumerable<Content> ReadAllContents();
+        Content ViewContent(Content content);
     }
 }

@@ -2,11 +2,11 @@
 {
     public class CategoryContent
     {
-        public int IdCategoryContent { get; set; }
+        public int CategoryContentId { get; set; }
 
-        public int IdCategory { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public int IdContent { get; set; }
+        public int ContentId { get; set; }
         public Content Content { get; set; }
     }
 }

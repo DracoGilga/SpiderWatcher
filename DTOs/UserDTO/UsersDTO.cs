@@ -1,6 +1,6 @@
 ﻿namespace DTOs.UserDTO
 {
-    internal class UsersDTO
+    public class UsersDTO
     {
         public int IdUser { get; init; }
         public string Email { get; init; }
@@ -10,5 +10,7 @@
         public DateOnly DateBirth { get; init; }
         public string UserName { get; init; }
         public string Password { get; init; }
+        public bool Restore { get; init; }
+        public bool Confirmation { get; init; }
     }
 }

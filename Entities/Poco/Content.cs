@@ -2,7 +2,7 @@
 {
     public class Content
     {
-        public int IdContent { get; set; }
+        public int ContentId { get; set; }
         public string Title { get; set; } = null!;
         public string Director { get; set; } = null!;
         public string Description { get; set; } = null!;

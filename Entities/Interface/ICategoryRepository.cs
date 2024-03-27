@@ -4,11 +4,11 @@ namespace Entities.Interface
 {
     public interface ICategoryRepository
     {
-        Task CreateCategory(Category category);
-        Task<Category> ReadCategory(int id);
-        Task UpdateCategory(Category category);
-        Task DeleteCategory(int id);
+        void CreateCategory(Category category);
+        Category ReadCategory(int id);
+        bool UpdateCategory(Category category);
+        void DeleteCategory(int id);
 
-        Task<IEnumerable<Category>> ReadAllCategories();
+        IEnumerable<Category> ReadAllCategories();
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Category
     {
-        public int IdCategory { get; set; }
+        public int CategoryId { get; set; }
         public string Genre { get; set; } = null!;
         public int MiniumAge { get; set; }
     }

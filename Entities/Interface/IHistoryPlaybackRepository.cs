@@ -9,11 +9,11 @@ namespace Entities.Interface
 {
     public interface IHistoryPlaybackRepository
     {
-        Task CreateHistoryPlaybackAsync(HistoryPlayback historyPlayback);
-        Task<HistoryPlayback> ReadHistoryPlaybackAsync(int id);
-        Task UpdateHistoryPlaybackAsync(HistoryPlayback historyPlayback);
-        Task DeleteHistoryPlaybackAsync(int id);
+        void CreateHistoryPlayback(HistoryPlayback historyPlayback);
+        HistoryPlayback ReadHistoryPlayback(int id);
+        bool UpdateHistoryPlayback(HistoryPlayback historyPlayback);
+        void DeleteHistoryPlayback(int id);
 
-        Task<IEnumerable<HistoryPlayback>> ReadAllHistoryPlaybacksAsync();
+        IEnumerable<HistoryPlayback> ReadAllHistoryPlaybacks();
     }
 }
