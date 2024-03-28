@@ -25,11 +25,12 @@ namespace RepositoryEFCore.Repositories
 
         public User LoginUser(User user)
         {
-            var foundUser = Context.Users.FirstOrDefault(u =>
+
+            var foundUser = Context.Users.SingleOrDefault(u =>
                 u.UserName == user.UserName &&
                 u.Password == user.Password);
 
-            return foundUser ?? null;
+            return foundUser;
         }
     }
 }

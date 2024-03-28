@@ -1,6 +1,7 @@
 ﻿using DTOs.UserDTO;
 using Microsoft.AspNetCore.Mvc;
 using Presenters;
+using Presenters.User;
 using UseCasesPort.UserPort.Inputs;
 using UseCasesPort.UserPort.Outputs;
 
@@ -21,7 +22,7 @@ namespace Controler.UserController
         public async Task<CreateUserDTO> CreateUser(CreateUserDTO userDTO)
         {
             await InputPort.Handle(userDTO);
-            return ((IPresenter<CreateUserDTO>)OutputPort).Content;
+            return ((CreateUserPresenter)OutputPort).Content;
         }
     }
 }

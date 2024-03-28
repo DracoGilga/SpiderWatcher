@@ -9,13 +9,12 @@ namespace UseCases.UserUC
     public class LoginUserInteractor : ILoginUserInputPort
     {
         readonly IUserRepository Repository;
-        readonly IUnitOfWork UnitOfWork;
         readonly ILoginUserOutputPort OutputPort;
 
-        public LoginUserInteractor(IUserRepository repository, 
-            IUnitOfWork unitOfWork, ILoginUserOutputPort outputPort) =>
-            (Repository, UnitOfWork, OutputPort) = 
-            (repository, unitOfWork, outputPort);
+        public LoginUserInteractor(IUserRepository repository,
+            ILoginUserOutputPort outputPort) =>
+            (Repository, OutputPort) = 
+            (repository, outputPort);
 
         public async Task Handle(LoginUserDTO user)
         {
@@ -27,16 +26,18 @@ namespace UseCases.UserUC
                 Confirmation = user.Confirmation
             };
 
-            Repository.LoginUser(NewUser);
-            await UnitOfWork.SaveChanges();
-            await OutputPort.Handle(
+            var result = Repository.LoginUser(NewUser);
+            if (result != null)
+            {
+                await OutputPort.Handle(
                 new LoginUserDTO
                 {
-                    UserName = NewUser.UserName,
-                    Password = NewUser.Password,
-                    Restore = NewUser.Restore,
-                    Confirmation = NewUser.Confirmation
+                    UserName = result.UserName,
+                    Password = result.Password,
+                    Restore = result.Restore,
+                    Confirmation = result.Confirmation
                 });
+            }
         }
     }
 }
