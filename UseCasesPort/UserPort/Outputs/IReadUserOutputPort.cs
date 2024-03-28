@@ -4,6 +4,6 @@ namespace UseCasesPort.UserPort.Outputs
 {
     public interface IReadUserOutputPort
     {
-        Task Handle(UsersDTO user);
+        Task Handle(ReadUserDTO user);
     }
 }

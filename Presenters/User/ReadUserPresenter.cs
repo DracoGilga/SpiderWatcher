@@ -4,11 +4,11 @@ using UseCasesPort.UserPort.Outputs;
 namespace Presenters.User
 {
     public class ReadUserPresenter :
-        IReadUserOutputPort, IPresenter<UsersDTO>
+        IReadUserOutputPort, IPresenter<ReadUserDTO>
     {
-        public UsersDTO Content { get; private set; }
+        public ReadUserDTO Content { get; private set; }
 
-        public Task Handle(UsersDTO user)
+        public Task Handle(ReadUserDTO user)
         {
             Content = user;
             return Task.CompletedTask;

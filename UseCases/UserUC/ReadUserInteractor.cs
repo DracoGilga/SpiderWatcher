@@ -9,28 +9,24 @@ namespace UseCases.UserUC
     public class ReadUserInteractor : IReadUserInputPort
     {
         readonly IUserRepository Repository;
-        readonly IUnitOfWork UnitOfWork;
+
         readonly IReadUserOutputPort OutputPort;
 
-        public ReadUserInteractor(IUserRepository repository, 
-            IUnitOfWork unitOfWork, IReadUserOutputPort outputPort) =>
-            (Repository, UnitOfWork, OutputPort) = 
-            (repository, unitOfWork, outputPort);
+        public ReadUserInteractor(IUserRepository repository,
+            IReadUserOutputPort outputPort) =>
+            (Repository, OutputPort) = 
+            (repository, outputPort);
 
-        public async Task Handle(ReadUserDTO user)
+        public async Task Handle(int IdUser)
         {
             User NewUser = new()
             {
-                UserId = user.IdUser,
-                Email = user.Email,
-                UserName = user.UserName,
-                Password = user.Password
+                UserId = IdUser
             };
 
             User User = Repository.ReadUser(NewUser.UserId);
-            await UnitOfWork.SaveChanges();
             await OutputPort.Handle(
-                new UsersDTO
+                new ReadUserDTO
                 {
                     IdUser = User.UserId,
                     Email = User.Email,
