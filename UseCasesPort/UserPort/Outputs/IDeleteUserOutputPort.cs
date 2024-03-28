@@ -4,6 +4,6 @@ namespace UseCasesPort.UserPort.Outputs
 {
     public interface IDeleteUserOutputPort
     {
-        Task Handle(DeleteUserDTO idUser);
+        Task Handle(UsersDTO User);
     }
 }

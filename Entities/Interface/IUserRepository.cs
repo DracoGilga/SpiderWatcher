@@ -7,7 +7,7 @@ namespace Entities.Interface
         void CreateUser(User user);
         User ReadUser(int id);
         bool UpdateUser(User user);
-        void DeleteUser(int id);
+        User DeleteUser(int id);
 
         IEnumerable<User> ReadAllUsers();
         bool UpdatePasswordUser(User user);

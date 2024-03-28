@@ -11,7 +11,17 @@ namespace RepositoryEFCore.Repositories
             => Context = context;
 
         public void CreateUser(User user) => Context.Add(user);
-        public void DeleteUser(int id) => Context.Remove(ReadUser(id));
+        public User DeleteUser(int id)
+        {
+            var userToDelete = ReadUser(id);
+            if (userToDelete != null)
+            {
+                var deletedUser = Context.Remove(userToDelete).Entity;
+                Context.SaveChanges(); 
+                return deletedUser;
+            }
+            return null;
+        }
         public IEnumerable<User> ReadAllUsers() => 
             Context.Users.ToList();
         public User ReadUser(int id) => 

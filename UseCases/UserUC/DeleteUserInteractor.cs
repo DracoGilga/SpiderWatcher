@@ -17,20 +17,33 @@ namespace UseCases.UserUC
             (Repository, UnitOfWork, OutputPort) = 
             (repository, unitOfWork, outputPort);
 
-        public async Task Handle(DeleteUserDTO user)
+        public async Task Handle(int IdUser)
         {
             User NewUser = new()
             {
-                UserId = user.IdUser
+                UserId = IdUser
             };
 
-            Repository.DeleteUser(NewUser.UserId);
+            var result =Repository.DeleteUser(NewUser.UserId);
             await UnitOfWork.SaveChanges();
-            await OutputPort.Handle(
-                new DeleteUserDTO
-                {
-                    IdUser = NewUser.UserId,
-                });
+            if (result != null)
+            {
+                await OutputPort.Handle(
+                    new UsersDTO
+                    {
+                        IdUser = result.UserId,
+                        Email = result.Email,
+                        Name = result.Name,
+                        LastName = result.LastName,
+                        AccountType = result.AccountType,
+                        DateBirth = result.DateBirth,
+                        UserName = result.UserName,
+                        Password = result.Password,
+                        Restore = result.Restore,
+                        Confirmation = result.Confirmation
+                    }
+                );
+            }
         }
     }
 }

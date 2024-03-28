@@ -1,14 +1,14 @@
-﻿using DTOs.UserDTO;
-using UseCasesPort.UserPort.Outputs;
+﻿using UseCasesPort.UserPort.Outputs;
+using DTOs.UserDTO;
 
 namespace Presenters.User
 {
     public class DeleteUserPresenter :
-        IDeleteUserOutputPort, IPresenter<DeleteUserDTO>
+        IDeleteUserOutputPort, IPresenter<UsersDTO>
     {
-        public DeleteUserDTO Content { get; private set; }
+        public UsersDTO Content { get; private set; }
 
-        public Task Handle(DeleteUserDTO user)
+        public Task Handle(UsersDTO user)
         {
             Content = user;
             return Task.CompletedTask;
