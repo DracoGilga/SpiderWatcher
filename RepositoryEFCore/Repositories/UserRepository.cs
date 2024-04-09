@@ -30,6 +30,7 @@ namespace RepositoryEFCore.Repositories
             Context.Users.Update(user) != null;
         public bool UpdateUser(User user) => 
             Context.Users.Update(user) != null;
+
         public bool UpgradeUser(User user) => 
             Context.Users.Update(user) != null;
 

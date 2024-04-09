@@ -19,24 +19,23 @@ namespace UseCases.UserUC
 
         public async Task Handle(UpdateUserDTO user)
         {
-            User NewUser = new()
+            User existingUser = Repository.ReadUser(user.IdUser);
+            if (existingUser != null)
             {
-                UserId = user.IdUser,
-                Email = user.Email,
-                Name = user.Name,
-                LastName = user.LastName
-            };
+                if (!string.IsNullOrEmpty(user.Email))
+                    existingUser.Email = user.Email;
+                if (!string.IsNullOrEmpty(user.Name))
+                    existingUser.Name = user.Name;
+                if (!string.IsNullOrEmpty(user.LastName))
+                    existingUser.LastName = user.LastName;
 
-            Repository.UpdateUser(NewUser);
-            await UnitOfWork.SaveChanges();
-            await OutputPort.Handle(
-                new UpdateUserDTO
+                bool success = Repository.UpdateUser(existingUser);
+                if (success)
                 {
-                    IdUser = NewUser.UserId,
-                    Email = NewUser.Email,
-                    Name = NewUser.Name,
-                    LastName = NewUser.LastName
-                });
+                    await UnitOfWork.SaveChanges();
+                    await OutputPort.Handle(user);
+                }
+            }
         }
     }
 }

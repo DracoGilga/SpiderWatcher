@@ -19,22 +19,20 @@ namespace UseCases.UserUC
 
         public async Task Handle(UpgradeUserDTO user)
         {
-            User NewUser = new()
+            User existingUser = Repository.ReadUser(user.IdUser);
+            if (existingUser != null)
             {
-                UserId = user.IdUser,
-                UserName = user.UserName,
-                AccountType = true
-            };
-
-            Repository.UpgradeUser(NewUser);
-            await UnitOfWork.SaveChanges();
-            await OutputPort.Handle(
-                new UpgradeUserDTO
+                if (user.AccountType)
                 {
-                    IdUser = NewUser.UserId,
-                    UserName = NewUser.UserName,
-                    AccountType = NewUser.AccountType
-                });
+                    existingUser.AccountType = user.AccountType;
+                    bool success = Repository.UpdateUser(existingUser);
+                    if (success)
+                    {
+                        await UnitOfWork.SaveChanges();
+                        await OutputPort.Handle(user);
+                    }
+                }
+            }
         }
     }
 }
