@@ -12,8 +12,19 @@ namespace RepositoryEFCore.Repositories
 
         public void CreateHistoryPlayback(HistoryPlayback historyPlayback) => 
             Context.Add(historyPlayback);
-        public void DeleteHistoryPlayback(int id) => 
-            Context.Remove(ReadHistoryPlayback(id));
+        public HistoryPlayback DeleteHistoryPlayback(int id)
+        {
+            var historyPlaybackToDelete = ReadHistoryPlayback(id);
+            if (historyPlaybackToDelete != null)
+            {
+                var deletedHistoryPlayback = Context.Remove(historyPlaybackToDelete).Entity;
+                Context.SaveChanges(); 
+                return deletedHistoryPlayback;
+            }
+
+            return null;
+        }
+
         public IEnumerable<HistoryPlayback> ReadAllHistoryPlaybacks() => 
             Context.HistoryPlaybacks ?? null;
         public HistoryPlayback ReadHistoryPlayback(int id) => 

@@ -12,7 +12,7 @@ namespace Entities.Interface
         void CreateHistoryPlayback(HistoryPlayback historyPlayback);
         HistoryPlayback ReadHistoryPlayback(int id);
         bool UpdateHistoryPlayback(HistoryPlayback historyPlayback);
-        void DeleteHistoryPlayback(int id);
+        HistoryPlayback DeleteHistoryPlayback(int id);
 
         IEnumerable<HistoryPlayback> ReadAllHistoryPlaybacks();
     }
