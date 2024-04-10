@@ -5,11 +5,11 @@ namespace Presenters.HistoryPlayback
 {
     public class ReadHistoryPlaybackPresenter :
         IReadHistoryPlaybackOutputPort, 
-        IPresenter<HistoryPlaybacksDTO>
+        IPresenter<ReadHistoryPlaybackDTO>
     {
-        public HistoryPlaybacksDTO Content { get; private set; }
+        public ReadHistoryPlaybackDTO Content { get; private set; }
 
-        public Task Handle(HistoryPlaybacksDTO historyPlayback)
+        public Task Handle(ReadHistoryPlaybackDTO historyPlayback)
         {
             Content = historyPlayback;
             return Task.CompletedTask;

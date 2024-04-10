@@ -4,6 +4,6 @@ namespace UseCasesPort.HistoryPlaybackPorts.Inputs
 {
     public interface IReadHistoryPlaybackInputPort
     {
-        Task Handle(ReadHistoryPlaybackDTO historyPlayback);
+        Task Handle(int IdHistoryPlayback);
     }
 }

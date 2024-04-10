@@ -14,15 +14,15 @@ namespace UseCases.HystoryPlaybackUC
         public ReadHistoryPlaybackInteractor(IHistoryPlaybackRepository repository, IReadHistoryPlaybackOutputPort outputPort) =>
             (this.repository, this.outputPort) = (repository, outputPort);
 
-        public async Task Handle(ReadHistoryPlaybackDTO historyPlayback)
+        public async Task Handle(int IdHistoryPlayback)
         {
             HistoryPlayback NewHistoryPlayback = new()
             {
-                HistoryPlaybackId = historyPlayback.IdHistory
+                HistoryPlaybackId = IdHistoryPlayback
             };
             HistoryPlayback HistoryPlayback = repository.ReadHistoryPlayback(NewHistoryPlayback.HistoryPlaybackId);
             await outputPort.Handle(
-                new HistoryPlaybacksDTO
+                new ReadHistoryPlaybackDTO
                 {
                     IdHistory = HistoryPlayback.HistoryPlaybackId,
                     IdUser = HistoryPlayback.UserId,

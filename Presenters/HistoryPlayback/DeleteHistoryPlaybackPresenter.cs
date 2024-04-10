@@ -3,11 +3,11 @@ using UseCasesPort.HistoryPlaybackPorts.Outputs;
 
 namespace Presenters.HistoryPlayback
 {
-    public class DeleteHistoryPlaybackPresenter : IDeleteHistoryPlaybackOutputPort, IPresenter<DeleteHistoryPlaybackDTO>
+    public class DeleteHistoryPlaybackPresenter : IDeleteHistoryPlaybackOutputPort, IPresenter<HistoryPlaybacksDTO>
     {
-        public DeleteHistoryPlaybackDTO Content { get; private set;}
+        public HistoryPlaybacksDTO Content { get; private set;}
 
-        public Task Handle(DeleteHistoryPlaybackDTO historyPlayback)
+        public Task Handle(HistoryPlaybacksDTO historyPlayback)
         {
             Content = historyPlayback;
             return Task.CompletedTask;

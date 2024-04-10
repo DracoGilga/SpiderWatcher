@@ -7,6 +7,7 @@ using UseCasesPort.UserPort.Outputs;
 namespace Controler.UserController
 {
     [Route("api/[Controller]")]
+    [ApiController]
     public class ReadUserController
     {
         readonly IReadUserInputPort InputPort;

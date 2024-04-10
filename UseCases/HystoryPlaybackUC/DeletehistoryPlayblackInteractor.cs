@@ -28,9 +28,13 @@ namespace UseCases.HystoryPlaybackUC
             if (result != null)
             {
                 await OutputPort.Handle(
-                    new DeleteHistoryPlaybackDTO
+                    new HistoryPlaybacksDTO
                     {
                         IdHistory = result.HistoryPlaybackId,
+                        IdUser = result.UserId,
+                        IdContent = result.ContentId,
+                        PlaybackTime = result.PlaybackTime,
+                        PlaybackDate = result.PlaybackDate
                     }
                 );
             }

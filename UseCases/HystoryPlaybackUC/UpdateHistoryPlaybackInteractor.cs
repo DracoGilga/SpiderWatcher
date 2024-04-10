@@ -39,7 +39,7 @@ namespace UseCases.HystoryPlaybackUC
                 {
                     await UnitOfWork.SaveChanges();
                     await OutputPort.Handle(
-                        new HistoryPlaybacksDTO
+                        new UpdateHistoryPlaybackDTO
                         {
                             IdHistory = existingUserHistoryPlayback.HistoryPlaybackId,
                             IdUser = existingUserHistoryPlayback.UserId,
