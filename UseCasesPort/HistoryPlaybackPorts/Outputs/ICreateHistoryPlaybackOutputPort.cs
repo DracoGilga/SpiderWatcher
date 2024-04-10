@@ -4,6 +4,6 @@ namespace UseCasesPort.HistoryPlaybackPorts.Outputs
 {
     public interface ICreateHistoryPlaybackOutputPort
     {
-        Task Handle(HistoryPlaybacksDTO historyPlayback);
+        Task Handle(CreateHistoryPlaybackDTO historyPlayback);
     }
 }
