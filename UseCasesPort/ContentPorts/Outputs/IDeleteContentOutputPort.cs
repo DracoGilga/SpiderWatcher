@@ -4,6 +4,6 @@ namespace UseCasesPort.ContentPorts.Outputs
 {
     public interface IDeleteContentOutputPort
     {
-        Task Handle(DeleteContentDTO content);
+        Task Handle(ContentsDTO content);
     }
 }

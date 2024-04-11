@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Presenters.Content;
 using Presenters.HistoryPlayback;
 using Presenters.User;
+using UseCasesPort.ContentPorts.Outputs;
 using UseCasesPort.HistoryPlaybackPorts.Outputs;
 using UseCasesPort.UserPort.Outputs;
 
@@ -11,6 +13,20 @@ namespace Presenters
         public static IServiceCollection AddPresenters(
             this IServiceCollection services)
         {
+            //Content
+            services.AddScoped<ICreateContentOutputPort, 
+                CreateContentPresenter>();
+            services.AddScoped<IDeleteContentOutputPort,
+                DeleteContentPresenter>();
+            services.AddScoped<IReadAllContentOutputPort,
+                ReadAllContentPresenter>();
+            services.AddScoped<IReadContentOutputPort,
+                ReadContentPresenter>();
+            services.AddScoped<IUpdateContentOutputPort,
+                UpdateContentPresenter>();
+            services.AddScoped<IViewContentOutputPort,
+                ViewContentPresenter>();
+
             //HistoryPlayback
             services.AddScoped<ICreateHistoryPlaybackOutputPort, 
                 CreateHistoryPlaybackPresenter>();

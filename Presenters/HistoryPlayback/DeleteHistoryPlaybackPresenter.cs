@@ -3,7 +3,8 @@ using UseCasesPort.HistoryPlaybackPorts.Outputs;
 
 namespace Presenters.HistoryPlayback
 {
-    public class DeleteHistoryPlaybackPresenter : IDeleteHistoryPlaybackOutputPort, IPresenter<HistoryPlaybacksDTO>
+    public class DeleteHistoryPlaybackPresenter : 
+        IDeleteHistoryPlaybackOutputPort, IPresenter<HistoryPlaybacksDTO>
     {
         public HistoryPlaybacksDTO Content { get; private set;}
 

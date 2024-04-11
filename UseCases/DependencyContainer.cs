@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using UseCases.ContentUC;
 using UseCases.HystoryPlaybackUC;
 using UseCases.UserUC;
+using UseCasesPort.ContentPorts.Inputs;
 using UseCasesPort.HistoryPlaybackPorts.Inputs;
 using UseCasesPort.UserPort.Inputs;
 
@@ -11,6 +13,20 @@ namespace UseCases
         public static IServiceCollection AddUseCasesServices(
             this IServiceCollection services)
         {
+            //Content
+            services.AddTransient
+                <ICreateContentInputPort, CreateContentInteractor>();
+            services.AddTransient
+                <IDeleteContentInputPort, DeleteContentInteractor>();
+            services.AddTransient
+                <IReadAllContentInputPort, ReadAllContentInteractor>();
+            services.AddTransient
+                <IReadContentInputPort, ReadContentInteractor>();
+            services.AddTransient
+                <IUpdateContentInputPort, UpdateContentInteractor>();
+            services.AddTransient
+                <IViewContentInputPort, ViewContentInteractor>();
+
             //HistoryPlayback
             services.AddTransient
                 <ICreateHistoryPlaybackInputPort, CreateHistoryPlaybackInteractor>();
@@ -40,7 +56,7 @@ namespace UseCases
                 <ILoginUserInputPort, LoginUserInteractor>();
             services.AddTransient
                 <IUpgradeUserInputPort,UpgradeUserInteractor>();
-            //
+            
             return services;
         }
     }

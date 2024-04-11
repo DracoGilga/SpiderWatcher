@@ -4,6 +4,6 @@
     {
         public int IdContent { get; init; }
         public string Title { get; init; }
-        public string videoReference { get; init; }
+        public string VideoReference { get; init; }
     }
 }

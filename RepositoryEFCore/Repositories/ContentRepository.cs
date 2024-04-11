@@ -12,8 +12,19 @@ namespace RepositoryEFCore.Repositories
 
         public void CreateContent(Content content) => 
             Context.Add(content);
-        public void DeleteContent(Content content) => 
-            Context.Remove(content);
+        public Content DeleteContent(int id)
+        {
+            var contentToDelete = ReadContent(id);
+            if (contentToDelete != null)
+            {
+                var deletedContent = Context.Remove(contentToDelete).Entity;
+                Context.SaveChanges(); 
+                return deletedContent;
+            }
+            
+            return null;
+        }
+
         public IEnumerable<Content> ReadAllContents() => 
             Context.Contents ?? null;
         public Content ReadContent(int id) => 

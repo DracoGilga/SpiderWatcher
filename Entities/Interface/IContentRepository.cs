@@ -7,7 +7,7 @@ namespace Entities.Interface
         void CreateContent(Content content);
         Content ReadContent(int id);
         bool UpdateContent(Content content);
-        void DeleteContent(Content content);
+        Content DeleteContent(int id);
 
         IEnumerable<Content> ReadAllContents();
         Content ViewContent(Content content);

@@ -14,7 +14,7 @@ namespace Controler.HistoryPlaybackController
         readonly IReadHistoryPlaybackOutputPort OutputPort;
 
         public ReadHistoryPlaybackController(IReadHistoryPlaybackInputPort inputPort,
-                                                       IReadHistoryPlaybackOutputPort outputPort) =>
+            IReadHistoryPlaybackOutputPort outputPort) =>
             (InputPort, OutputPort) = (inputPort, outputPort);
 
         [HttpGet("{IdHistoryPlayback}")]

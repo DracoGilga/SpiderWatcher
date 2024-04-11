@@ -14,7 +14,7 @@ namespace Controler.HistoryPlaybackController
         readonly IUpdateHistoryPlaybackOutputPort OutputPort;
 
         public UpdateHistoryPlaybackController(IUpdateHistoryPlaybackInputPort inputPort,
-                                  IUpdateHistoryPlaybackOutputPort outputPort) =>
+            IUpdateHistoryPlaybackOutputPort outputPort) =>
             (InputPort, OutputPort) = (inputPort, outputPort);
 
         [HttpPut]

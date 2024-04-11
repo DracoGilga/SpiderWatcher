@@ -4,6 +4,6 @@ namespace UseCasesPort.ContentPorts.Inputs
 {
     public interface IReadContentInputPort
     {
-        Task Handle(ReadContentDTO content);
+        Task Handle(int IdCsontent);
     }
 }
