@@ -14,8 +14,4 @@
     <ProjectReference Include="..\UseCasesPort\UseCasesPort.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Category\" />
-  </ItemGroup>
-
 </Project>
