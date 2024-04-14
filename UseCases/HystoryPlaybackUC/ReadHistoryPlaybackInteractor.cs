@@ -29,7 +29,8 @@ namespace UseCases.HystoryPlaybackUC
                     IdContent = HistoryPlayback.ContentId,
                     PlaybackTime = HistoryPlayback.PlaybackTime,
                     PlaybackDate = HistoryPlayback.PlaybackDate
-                });
+                }
+            );
         }
     }
 }

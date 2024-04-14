@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using UseCases.CategoryUC;
 using UseCases.ContentUC;
 using UseCases.HystoryPlaybackUC;
 using UseCases.UserUC;
+using UseCasesPort.CategoryPorts.Inputs;
 using UseCasesPort.ContentPorts.Inputs;
 using UseCasesPort.HistoryPlaybackPorts.Inputs;
 using UseCasesPort.UserPort.Inputs;
@@ -13,6 +15,18 @@ namespace UseCases
         public static IServiceCollection AddUseCasesServices(
             this IServiceCollection services)
         {
+            //Category
+            services.AddTransient
+                <ICreateCategoryInputPort, CreateCategoryInteractor>();
+            services.AddTransient
+                <IDeleteCategoryInputPort, DeleteCategoryInteractor>();
+            services.AddTransient
+                <IReadAllCategoryInputPort, ReadAllCategoryInteractor>();
+            services.AddTransient
+                <IReadCategoryInputPort, ReadCategoryInteractor>();
+            services.AddTransient
+                <IUpdateCategoryInputPort, UpdateCategoryInteractor>();
+
             //Content
             services.AddTransient
                 <ICreateContentInputPort, CreateContentInteractor>();

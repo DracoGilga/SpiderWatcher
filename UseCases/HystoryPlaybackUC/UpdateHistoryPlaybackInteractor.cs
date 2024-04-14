@@ -46,7 +46,8 @@ namespace UseCases.HystoryPlaybackUC
                             IdContent = existingUserHistoryPlayback.ContentId,
                             PlaybackTime = existingUserHistoryPlayback.PlaybackTime,
                             PlaybackDate = existingUserHistoryPlayback.PlaybackDate
-                        });
+                        }
+                    );
                 }
 
             }

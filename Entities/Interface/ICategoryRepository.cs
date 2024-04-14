@@ -7,7 +7,7 @@ namespace Entities.Interface
         void CreateCategory(Category category);
         Category ReadCategory(int id);
         bool UpdateCategory(Category category);
-        void DeleteCategory(int id);
+        Category DeleteCategory(int id);
 
         IEnumerable<Category> ReadAllCategories();
     }

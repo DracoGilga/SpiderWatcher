@@ -4,6 +4,6 @@ namespace UseCasesPort.CategoryPorts.Inputs
 {
     public interface IReadCategoryInputPort
     {
-        Task Handle(ReadCategoryDTO category);
+        Task Handle(int IdCategory);
     }
 }
