@@ -12,8 +12,19 @@ namespace RepositoryEFCore.Repositories
 
         public void CreateCategoryContent(CategoryContent categoryContent) => 
             Context.CategoryContents.Add(categoryContent);
-        public void DeleteCategoryContent(int id) => 
-            Context.CategoryContents.Remove(ReadCategoryContent(id));
+        public CategoryContent DeleteCategoryContent(int id)
+        {
+            var categoryContentToDelete = ReadCategoryContent(id);
+            if (categoryContentToDelete != null)
+            {
+                var deletedCategoryContent = Context.CategoryContents.Remove(categoryContentToDelete).Entity;
+                Context.SaveChanges(); 
+                return deletedCategoryContent;
+            }
+
+            return null;
+        }
+
         public IEnumerable<CategoryContent> ReadAllCategoryContents() =>
             Context.CategoryContents;
         public CategoryContent ReadCategoryContent(int id) => 

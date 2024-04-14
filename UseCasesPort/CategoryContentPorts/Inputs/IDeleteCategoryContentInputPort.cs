@@ -4,6 +4,6 @@ namespace UseCasesPort.CategoryContentPorts.Inputs
 {
     public interface IDeleteCategoryContentInputPort
     {
-        Task Handle(DeleteCategoryContentDTO categoryContent);
+        Task Handle(int IdCategoryContent);
     }
 }
