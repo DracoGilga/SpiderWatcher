@@ -31,7 +31,7 @@ namespace Presenters
 
             //Category
             services.AddScoped<ICreateCategoryOutputPort, 
-                               CreateCategoryPresenter>();
+                CreateCategoryPresenter>();
             services.AddScoped<IDeleteCategoryOutputPort,
                 DeleteCategoryPresenter>();
             services.AddScoped<IReadAllCategoryOutputPort,
