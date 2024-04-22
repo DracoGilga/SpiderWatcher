@@ -1,17 +1,17 @@
-name: Compilar e implementar la aplicación de .NET Core en la aplicación web SpiderWatcherApiContent
+name: Compilar e implementar la aplicación de .NET Core en la aplicación web ApiSpiderwatcherUser
 on:
   push:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: SpiderWatcherApiContent
-  AZURE_WEBAPP_PACKAGE_PATH: ApiContent/publish
+  AZURE_WEBAPP_NAME: ApiSpiderwatcherUser
+  AZURE_WEBAPP_PACKAGE_PATH: ApiUser\publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
-  WORKING_DIRECTORY: ApiContent
+  WORKING_DIRECTORY: ApiUser
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET SDK
@@ -32,7 +32,7 @@ jobs:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     steps:
     - name: Download artifact from build job
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.SpiderWatcherApiContent_7D42 }}
+        publish-profile: ${{ secrets.ApiSpiderwatcherUser_9356 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
