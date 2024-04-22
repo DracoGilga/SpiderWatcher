@@ -1,0 +1,7 @@
+//@Api_HostAddress =http://localhost:5000
+@Api_HostAddress = https://spiderwatcherapiuser.azurewebsites.net/
+
+GET {{Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
