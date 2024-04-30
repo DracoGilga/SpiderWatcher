@@ -28,9 +28,11 @@ namespace UseCases.CategoryContentUC
             if (result != null)
             {
                 await OutputPort.Handle(
-                    new DeleteCategoryContentDTO
+                    new CategoryContentsDTO
                     {
-                        IdCategoryContent = result.CategoryContentId
+                        IdCategoryContent = result.CategoryContentId,
+                        IdCategory = result.CategoryId,
+                        IdContent = result.ContentId
                     }
                 );
             }

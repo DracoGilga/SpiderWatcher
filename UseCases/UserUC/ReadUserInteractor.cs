@@ -9,7 +9,6 @@ namespace UseCases.UserUC
     public class ReadUserInteractor : IReadUserInputPort
     {
         readonly IUserRepository Repository;
-
         readonly IReadUserOutputPort OutputPort;
 
         public ReadUserInteractor(IUserRepository repository,

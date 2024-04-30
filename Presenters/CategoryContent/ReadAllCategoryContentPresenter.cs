@@ -3,7 +3,7 @@ using UseCasesPort.CategoryContentPorts.Outputs;
 
 namespace Presenters.CategoryContent
 {
-    internal class ReadAllCategoryContentPresenter : 
+    public class ReadAllCategoryContentPresenter : 
         IReadAllCategoryContentOutputPort, IPresenter<IEnumerable<ReadCategoryContentDTO>>
     {
         public IEnumerable<ReadCategoryContentDTO> Content { get; private set; }

@@ -4,11 +4,11 @@ using UseCasesPort.CategoryContentPorts.Outputs;
 namespace Presenters.CategoryContent
 {
     public class DeleteCategoryContentPresenter :
-        IDeleteCategoryContentOutputPort, IPresenter<DeleteCategoryContentDTO>
+        IDeleteCategoryContentOutputPort, IPresenter<CategoryContentsDTO>
     {
-        public DeleteCategoryContentDTO Content { get; private set;}
+        public CategoryContentsDTO Content { get; private set;}
 
-        public Task Handle(DeleteCategoryContentDTO categoryContent)
+        public Task Handle(CategoryContentsDTO categoryContent)
         {
             Content = categoryContent;
             return Task.CompletedTask;
