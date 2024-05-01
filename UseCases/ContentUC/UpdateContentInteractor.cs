@@ -8,17 +8,18 @@ namespace UseCases.ContentUC
 {
     public class UpdateContentInteractor : IUpdateContentInputPort
     {
-        readonly IContentRepository contentRepository;
-        readonly IUnitOfWork unitOfWork;
-        readonly IUpdateContentOutputPort outputPort;
+        readonly IContentRepository ContentRepository;
+        readonly IUnitOfWork UnitOfWork;
+        readonly IUpdateContentOutputPort OutputPort;
 
-        public UpdateContentInteractor(IContentRepository contentRepository, IUnitOfWork unitOfWork, IUpdateContentOutputPort outputPort) =>
-            (this.contentRepository, this.unitOfWork, this.outputPort) = 
+        public UpdateContentInteractor(IContentRepository contentRepository,
+            IUnitOfWork unitOfWork, IUpdateContentOutputPort outputPort) =>
+            (ContentRepository, UnitOfWork, OutputPort) =
             (contentRepository, unitOfWork, outputPort);
 
         public async Task Handle(UpdateContentDTO content)
         {
-            Content existingContent = contentRepository.ReadContent(content.IdContent);
+            Content existingContent = ContentRepository.ReadContent(content.IdContent);
             if (existingContent != null)
             {
                 if (!string.IsNullOrEmpty(content.Title))
@@ -39,11 +40,11 @@ namespace UseCases.ContentUC
                 if (!string.IsNullOrEmpty(content.ImageReference))
                     existingContent.ImageReference = content.ImageReference;
 
-                bool success = contentRepository.UpdateContent(existingContent);
+                bool success = ContentRepository.UpdateContent(existingContent);
                 if (success)
                 {
-                    await unitOfWork.SaveChanges();
-                    await outputPort.Handle(
+                    await UnitOfWork.SaveChanges();
+                    await OutputPort.Handle(
                         new UpdateContentDTO
                         {
                             IdContent = existingContent.ContentId,

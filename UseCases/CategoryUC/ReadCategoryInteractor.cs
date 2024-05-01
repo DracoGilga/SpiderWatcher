@@ -26,8 +26,7 @@ namespace UseCases.CategoryUC
                 {
                     Genre = Category.Genre,
                     MiniumAge = Category.MiniumAge,
-                }
-                                          );
+                });
         }
     }
 }
