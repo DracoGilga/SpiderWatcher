@@ -6,7 +6,7 @@ using UseCasesPort.CategoryContentPorts.Outputs;
 
 namespace CategoryContentController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class UpdateCategoryContentController
     {

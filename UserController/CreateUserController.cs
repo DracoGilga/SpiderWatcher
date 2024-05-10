@@ -6,7 +6,7 @@ using UseCasesPort.UserPort.Outputs;
 
 namespace UserController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class CreateUserController
     {

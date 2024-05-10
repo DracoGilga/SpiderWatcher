@@ -6,7 +6,7 @@ using UseCasesPort.CategoryPorts.Outputs;
 
 namespace CategoryController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class ReadAllCategoryController
     {
