@@ -6,7 +6,8 @@ namespace UseCases.DependencyContainers
 {
     public static class Content
     {
-        public static IServiceCollection AddContentServices(this IServiceCollection services)
+        public static IServiceCollection AddContentServices
+            (this IServiceCollection services)
         {
             services.AddTransient
                 <ICreateContentInputPort, CreateContentInteractor>();
