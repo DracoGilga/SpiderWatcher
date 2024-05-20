@@ -51,11 +51,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContentController", "Conten
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCategoryContent", "ApiCategoryContent\ApiCategoryContent.csproj", "{F21DD400-9121-444B-9A8B-E061D536F7E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryContentController", "CategoryContentController\CategoryContentController.csproj", "{8FB2B59E-4F58-494A-A01A-9B88BA662528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoryContentController", "CategoryContentController\CategoryContentController.csproj", "{8FB2B59E-4F58-494A-A01A-9B88BA662528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryController", "CategoryController\CategoryController.csproj", "{270F780C-6676-4821-9BFD-9373050827D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoryController", "CategoryController\CategoryController.csproj", "{270F780C-6676-4821-9BFD-9373050827D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{74F96B53-C15B-40A4-ABD1-ADC594E68881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{74F96B53-C15B-40A4-ABD1-ADC594E68881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryEmail", "RepositoryEmail\RepositoryEmail.csproj", "{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +141,10 @@ Global
 		{74F96B53-C15B-40A4-ABD1-ADC594E68881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74F96B53-C15B-40A4-ABD1-ADC594E68881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F96B53-C15B-40A4-ABD1-ADC594E68881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +173,7 @@ Global
 		{8FB2B59E-4F58-494A-A01A-9B88BA662528} = {79708797-6459-4D29-9DB9-F05AE183AAF0}
 		{270F780C-6676-4821-9BFD-9373050827D0} = {79708797-6459-4D29-9DB9-F05AE183AAF0}
 		{74F96B53-C15B-40A4-ABD1-ADC594E68881} = {D61CCFA8-898C-49FD-9350-8D75BE3C9E1A}
+		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9} = {F1599523-C8E2-44B4-A16A-D754112C420D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {710B9DAF-D1C6-419F-90BF-948520BF9AB0}

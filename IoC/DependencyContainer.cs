@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Presenters;
 using RepositoryEFCore;
+using RepositoryEmail;
 using UseCases;
 
 namespace IoC
@@ -15,6 +16,7 @@ namespace IoC
             services.AddRepositories(configuration);
             services.AddUseCasesServices();
             services.AddPresenters();
+            services.AddEmailRepositories(configuration);
 
             return services;
         }

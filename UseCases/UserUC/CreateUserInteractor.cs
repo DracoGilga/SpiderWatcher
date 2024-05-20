@@ -11,11 +11,12 @@ namespace UseCases.UserUC
         readonly IUserRepository Repository;
         readonly IUnitOfWork UnitOfWork;
         readonly ICreateUserOutputPort OutputPort;
+        readonly ISentEmail SentEmail;
 
         public CreateUserInteractor(IUserRepository repository, 
-            IUnitOfWork unitOfWork, ICreateUserOutputPort outputPort) =>
-            (Repository, UnitOfWork, OutputPort) = 
-            (repository, unitOfWork, outputPort);
+            IUnitOfWork unitOfWork, ICreateUserOutputPort outputPort, ISentEmail sentEmail) =>
+            (Repository, UnitOfWork, OutputPort, SentEmail) = 
+            (repository, unitOfWork, outputPort, sentEmail);
 
         public async Task Handle(CreateUserDTO user)
         {
@@ -34,18 +35,34 @@ namespace UseCases.UserUC
 
             Repository.CreateUser(NewUser);
             await UnitOfWork.SaveChanges();
-            await OutputPort.Handle(
-                new CreateUserDTO
-                {
-                    Email = NewUser.Email,
-                    Name = NewUser.Name,
-                    LastName = NewUser.LastName,
-                    AccountType = NewUser.AccountType,
-                    DateBirth = NewUser.DateBirth,
-                    UserName = NewUser.UserName,
-                    Password = NewUser.Password,
-                    Confirmation = NewUser.Confirmation
-                });
+
+            User NewUserEmail = new()
+            {
+                Email = NewUser.Email,
+                UserName = NewUser.UserName,
+                Password = NewUser.Password
+            };
+
+            bool success;
+            do
+            {
+                success = SentEmail.CreateUserEmail(NewUserEmail);
+            } while (!success);
+
+            if (success) 
+                await OutputPort.Handle(
+                    new CreateUserDTO
+                    {
+                        Email = NewUser.Email,
+                        Name = NewUser.Name,
+                        LastName = NewUser.LastName,
+                        AccountType = NewUser.AccountType,
+                        DateBirth = NewUser.DateBirth,
+                        UserName = NewUser.UserName,
+                        Password = NewUser.Password,
+                        Confirmation = NewUser.Confirmation
+                    }
+                );
         }
     }
 }

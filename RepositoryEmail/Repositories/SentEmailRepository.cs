@@ -1,0 +1,81 @@
+﻿using Azure.Communication.Email;
+using Azure;
+using Entities.Interface;
+using Entities.Poco;
+using DTOs;
+using System;
+using System.IO;
+
+namespace RepositoryEmail.Repositories
+{
+    internal class SentEmailRepository : ISentEmail
+    {
+        private readonly EmailClient emailClient;
+        private readonly EmailSettings emailSettings;
+
+        public SentEmailRepository(EmailClient emailClient, EmailSettings emailSettings) =>
+            (this.emailClient, this.emailSettings) = (emailClient, emailSettings);
+
+        public bool CreateUserEmail(User user)
+        {
+            string subject = "Welcome to our service";
+            string confirmationUrl = $"creacion del token de autenticacion";
+            string htmlContent = GetHtmlContent("Templates/VerifyCount.html", confirmationUrl);
+
+            return SendEmail(user.Email, subject, htmlContent);
+        }
+
+        public bool UpdatePasswordUserEmail(User user)
+        {
+            string subject = "Password Updated";
+            string resetPasswordUrl = $"creacion del token de reseteo de cuentas";
+            string htmlContent = GetHtmlContent("Templates/PasswordUpdate.html", resetPasswordUrl);
+
+            return SendEmail(user.Email, subject, htmlContent);
+        }
+
+        public bool UpgradeUserEmail(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool SendEmail(string toEmail, string subject, string htmlContent)
+        {
+            try
+            {
+                EmailSendOperation emailSendOperation = emailClient.Send(
+                    WaitUntil.Completed,
+                    senderAddress: emailSettings.SenderAddress,
+                    recipientAddress: toEmail,
+                    subject: subject,
+                    htmlContent: htmlContent);
+
+                return emailSendOperation.HasCompleted;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        private string GetHtmlContent(string filePath, string confirmUrl)
+        {
+            try
+            {
+                // Construir la ruta absoluta del archivo basado en el directorio de salida actual
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string fullPath = Path.Combine(basePath, filePath);
+
+                string htmlContent = File.ReadAllText(fullPath);
+                htmlContent = htmlContent.Replace("{ConfirmUrl}", confirmUrl);
+                return htmlContent;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return string.Empty;
+            }
+        }
+    }
+}

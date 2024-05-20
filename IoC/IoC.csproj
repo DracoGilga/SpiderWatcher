@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Presenters\Presenters.csproj" />
     <ProjectReference Include="..\RepositoryEFCore\RepositoryEFCore.csproj" />
+    <ProjectReference Include="..\RepositoryEmail\RepositoryEmail.csproj" />
     <ProjectReference Include="..\UseCases\UseCases.csproj" />
   </ItemGroup>
 
