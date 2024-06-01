@@ -13,7 +13,7 @@ namespace UseCases.UserUC
 
         public LoginUserInteractor(IUserRepository repository,
             ILoginUserOutputPort outputPort) =>
-            (Repository, OutputPort) = 
+            (Repository, OutputPort) =
             (repository, outputPort);
 
         public async Task Handle(LoginUserDTO user)
@@ -21,21 +21,18 @@ namespace UseCases.UserUC
             User NewUser = new()
             {
                 UserName = user.UserName,
-                Password = user.Password,
-                Restore = user.Restore,
-                Confirmation = user.Confirmation
+                Password = user.Password
             };
 
             var result = Repository.LoginUser(NewUser);
             if (result != null)
             {
                 await OutputPort.Handle(
-                new LoginUserDTO
+                new ResultLoginUserDTO
                 {
-                    UserName = result.UserName,
-                    Password = result.Password,
                     Restore = result.Restore,
-                    Confirmation = result.Confirmation
+                    Confirmation = result.Confirmation,
+                    AccountType = result.AccountType
                 });
             }
         }

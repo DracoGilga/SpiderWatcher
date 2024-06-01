@@ -1,7 +1,8 @@
-@ApiUser_HostAddress =http://localhost:5000
+@ApiUser_HostAddress =http://localhost:5001
 //@ApiUser_HostAddress = https://apispiderwatcheruser.azurewebsites.net
 
 GET {{ApiUser_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+  
