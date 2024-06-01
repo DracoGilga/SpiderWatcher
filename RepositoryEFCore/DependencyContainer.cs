@@ -21,6 +21,7 @@ namespace RepositoryEFCore
             services.AddScoped<IContentRepository, ContentRepository>();
             services.AddScoped<IHistoryPlaybackRepository, HistoryPlaybackRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IValidationRepository, ValidationRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

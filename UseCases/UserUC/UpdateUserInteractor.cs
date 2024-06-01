@@ -9,33 +9,60 @@ namespace UseCases.UserUC
     internal class UpdateUserInteractor : IUpdateUserInputPort
     {
         readonly IUserRepository Repository;
+        readonly IValidationRepository ValidationRepository;
         readonly IUnitOfWork UnitOfWork;
         readonly IUpdateUserOutputPort OutputPort;
 
         public UpdateUserInteractor(IUserRepository repository, 
+            IValidationRepository validationRepository, 
             IUnitOfWork unitOfWork, IUpdateUserOutputPort outputPort) =>
-            (Repository, UnitOfWork, OutputPort) = 
-            (repository, unitOfWork, outputPort);
+            (Repository, ValidationRepository, UnitOfWork, OutputPort) = 
+            (repository, validationRepository, unitOfWork, outputPort);
 
         public async Task Handle(UpdateUserDTO user)
         {
-            User existingUser = Repository.ReadUser(user.IdUser);
-            if (existingUser != null)
+            try
             {
-                if (!string.IsNullOrEmpty(user.Email))
-                    existingUser.Email = user.Email;
-                if (!string.IsNullOrEmpty(user.Name))
-                    existingUser.Name = user.Name;
-                if (!string.IsNullOrEmpty(user.LastName))
-                    existingUser.LastName = user.LastName;
+                if (user == null)
+                    throw new ArgumentException("Invalid user data");
 
-                bool success = Repository.UpdateUser(existingUser);
-                if (success)
+                if (!string.IsNullOrEmpty(user.ValidationMessage))
                 {
-                    await UnitOfWork.SaveChanges();
-                    await OutputPort.Handle(user);
+                    Validation validation = new()
+                    {
+                        UserId = user.IdUser,
+                        ValidationMessage = user.ValidationMessage
+                    };
+
+                    if (!ValidationRepository.ReadValidation(validation))
+                        throw new InvalidOperationException("Invalid validation code");
                 }
+
+                User existingUser = Repository.ReadUser(user.IdUser);
+                if (existingUser == null)
+                    throw new KeyNotFoundException("User not found");
+
+                if (!existingUser.Confirmation)
+                {
+                    existingUser.Confirmation = true;
+                    
+                    if (Repository.UpdateUser(existingUser))
+                    {
+                        await UnitOfWork.SaveChanges();
+                        await OutputPort.Handle(user);
+                    }
+                    else
+                        throw new InvalidOperationException("Failed to update user");
+                }
+                else
+                    await OutputPort.Handle(user);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating user: {ex.Message}");
+                throw;
             }
         }
+
     }
 }

@@ -17,6 +17,7 @@ namespace RepositoryEFCore.DependencyContainers
                            options.UseSqlServer(configuration.GetConnectionString("SpiderWatcherMSQL")));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IValidationRepository, ValidationRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
