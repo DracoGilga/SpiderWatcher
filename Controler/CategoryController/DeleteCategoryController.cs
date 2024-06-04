@@ -6,7 +6,7 @@ using UseCasesPort.CategoryPorts.Outputs;
 
 namespace Controler.Category
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class DeleteCategoryController
     {

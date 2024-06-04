@@ -11,7 +11,7 @@ using UseCasesPort.UserPort.Outputs;
 
 namespace Controler.UserController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class LoginUserController : ControllerBase
     {

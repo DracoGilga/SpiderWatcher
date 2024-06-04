@@ -77,8 +77,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8084
+                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/HistoryPlayback/CreateHistoryPlayback",
@@ -97,8 +97,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8084
+                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/HistoryPlayback/DeleteHistoryPlayback/{IdHistoryPlayback}",
@@ -117,8 +117,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8084
+                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/HistoryPlayback/ReadAllHistoryPlayback",
@@ -137,8 +137,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8084
+                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/HistoryPlayback/ReadHistoryPlayback/{IdHistoryPlayback}",
@@ -157,8 +157,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8084
+                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/HistoryPlayback/UpdateHistoryPlayback",
@@ -178,8 +178,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8083
+                    "Host": "apispiderwatchercontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Content/CreateContent",
@@ -201,8 +201,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8083
+                    "Host": "apispiderwatchercontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Content/ReadAllContent",
@@ -221,8 +221,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8083
+                    "Host": "apispiderwatchercontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Content/ReadContent/{IdContent}",
@@ -241,8 +241,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8083
+                    "Host": "apispiderwatchercontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Content/UpdateContent",
@@ -264,8 +264,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8083
+                    "Host": "apispiderwatchercontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Content/ViewContent/{IdContent}",
@@ -285,8 +285,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8082
+                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/CategoryContent/CreateCategoryContent",
@@ -305,8 +305,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8082
+                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/CategoryContent/DeleteCategoryContent/{IdCategoryContent}",
@@ -325,8 +325,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8082
+                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/CategoryContent/ReadAllCategoryContent",
@@ -345,8 +345,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8082
+                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/CategoryContent/ReadCategoryContent/{IdCategoryContent}",
@@ -365,8 +365,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8082
+                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/CategoryContent/UpdateCategoryContent",
@@ -386,8 +386,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8081
+                    "Host": "apispiderwatchercategory.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Category/CreateCategoryContent",
@@ -406,8 +406,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8081
+                    "Host": "apispiderwatchercategory.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Category/DeleteCategory/{IdCategory}",
@@ -426,8 +426,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8081
+                    "Host": "apispiderwatchercategory.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Category/ReadAllCategory",
@@ -446,8 +446,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8081
+                    "Host": "apispiderwatchercategory.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Category/ReadCategory/{IdCategory}",
@@ -466,8 +466,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8081
+                    "Host": "apispiderwatchercategory.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/Category/UpdateCategory",

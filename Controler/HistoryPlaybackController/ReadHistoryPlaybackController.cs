@@ -6,7 +6,7 @@ using UseCasesPort.HistoryPlaybackPorts.Outputs;
 
 namespace Controler.HistoryPlaybackController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class ReadHistoryPlaybackController
     {

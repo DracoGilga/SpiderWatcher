@@ -6,7 +6,7 @@ using UseCasesPort.ContentPorts.Outputs;
 
 namespace Controler.ContentController
 {
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class ReadContentController
     {
