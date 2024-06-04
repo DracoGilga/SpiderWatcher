@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoryController", "Categ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCategory", "ApiCategory\ApiCategory.csproj", "{74F96B53-C15B-40A4-ABD1-ADC594E68881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryEmail", "RepositoryEmail\RepositoryEmail.csproj", "{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryEmail", "RepositoryEmail\RepositoryEmail.csproj", "{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{2086BFD5-0994-4CD3-A6AF-918938CE4BF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,10 @@ Global
 		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2086BFD5-0994-4CD3-A6AF-918938CE4BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2086BFD5-0994-4CD3-A6AF-918938CE4BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2086BFD5-0994-4CD3-A6AF-918938CE4BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2086BFD5-0994-4CD3-A6AF-918938CE4BF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,6 +180,7 @@ Global
 		{270F780C-6676-4821-9BFD-9373050827D0} = {79708797-6459-4D29-9DB9-F05AE183AAF0}
 		{74F96B53-C15B-40A4-ABD1-ADC594E68881} = {D61CCFA8-898C-49FD-9350-8D75BE3C9E1A}
 		{A0A2FADB-1607-4F49-9F7C-07B29CB507D9} = {F1599523-C8E2-44B4-A16A-D754112C420D}
+		{2086BFD5-0994-4CD3-A6AF-918938CE4BF3} = {D61CCFA8-898C-49FD-9350-8D75BE3C9E1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {710B9DAF-D1C6-419F-90BF-948520BF9AB0}

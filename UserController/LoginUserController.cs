@@ -43,19 +43,26 @@ namespace Controler.UserController
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(JwtSettings.Key);
+
+            // Definir los claims del token, incluyendo el "scope" requerido
+            var claims = new List<Claim>
+            {
+                new Claim("AccountType", user.AccountType.ToString()),
+                new Claim("scope", "SpiderWatcherJWT") // Agregar el scope requerido aquí
+            };
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim("AccountType", user.AccountType.ToString())
-                }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(JwtSettings.Duration),
                 Issuer = JwtSettings.Issuer,
                 Audience = JwtSettings.Audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
     }
 }
