@@ -483,7 +483,7 @@
         }
     ],
     "GlobalConfiguration": {
-        "BaseUrl": "https://localhost:8001",
+        "BaseUrl": "https://apigatewaysw.azurewebsites.net",
         "RateLimitOptions": {
             "ClientWhitelist": [],
             "EnableRateLimiting": true,
