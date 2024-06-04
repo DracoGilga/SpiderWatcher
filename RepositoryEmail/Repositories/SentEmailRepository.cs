@@ -19,8 +19,7 @@ namespace RepositoryEmail.Repositories
         public bool CreateUserEmail(User user)
         {
             string subject = "Welcome to our service";
-            string confirmationUrl = $"creacion del token de autenticacion";
-            string htmlContent = GetHtmlContent("Templates/VerifyCount.html", confirmationUrl);
+            string htmlContent = GetHtmlContent("Templates/VerifyCount.html", user.Password);
 
             return SendEmail(user.Email, subject, htmlContent);
         }
@@ -28,8 +27,7 @@ namespace RepositoryEmail.Repositories
         public bool UpdatePasswordUserEmail(User user)
         {
             string subject = "Password Updated";
-            string resetPasswordUrl = $"creacion del token de reseteo de cuentas";
-            string htmlContent = GetHtmlContent("Templates/PasswordUpdate.html", resetPasswordUrl);
+            string htmlContent = GetHtmlContent("Templates/PasswordUpdate.html", user.Password);
 
             return SendEmail(user.Email, subject, htmlContent);
         }

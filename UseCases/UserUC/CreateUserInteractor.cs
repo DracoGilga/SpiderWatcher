@@ -49,6 +49,7 @@ namespace UseCases.UserUC
             };
 
             ValidationRepository.CreateValidation(NewValidation);
+            await UnitOfWork.SaveChanges();
 
             User NewUserEmail = new()
             {
