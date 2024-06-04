@@ -6,8 +6,8 @@
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8085
+                    "Host": "apispiderwatcheruser.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/User/CreateUser",
@@ -17,11 +17,11 @@
         },
         {
             "DownstreamPathTemplate": "/LoginUser",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8085
+                    "Host": "apispiderwatcheruser.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/User/LoginUser",
@@ -31,11 +31,11 @@
         },
         {
             "DownstreamPathTemplate": "/ReadUser/{IdUser}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8085
+                    "Host": "apispiderwatcheruser.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/User/ReadUser/{IdUser}",
@@ -45,11 +45,11 @@
         },
         {
             "DownstreamPathTemplate": "/UpdateUser",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8085
+                    "Host": "apispiderwatcheruser.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/User/UpdateUser",
@@ -59,11 +59,11 @@
         },
         {
             "DownstreamPathTemplate": "/UpgradeUser",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 8085
+                    "Host": "apispiderwatcheruser.azurewebsites.net",
+                    "Port": 443
                 }
             ],
             "UpstreamPathTemplate": "/User/UpgradeUser",
@@ -74,7 +74,7 @@
         //HistoryPlayback
         {
             "DownstreamPathTemplate": "/CreateHistoryPlayback",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -94,7 +94,7 @@
         },
         {
             "DownstreamPathTemplate": "/DeleteHistoryPlayback/{IdHistoryPlayback}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -114,7 +114,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadAllHistoryPlayback",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -134,7 +134,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadHistoryPlayback/{IdHistoryPlayback}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -154,7 +154,7 @@
         },
         {
             "DownstreamPathTemplate": "/UpdateHistoryPlayback",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -175,7 +175,7 @@
         //Content
         {
             "DownstreamPathTemplate": "/CreateContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -198,7 +198,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadAllContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -218,7 +218,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadContent/{IdContent}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -238,7 +238,7 @@
         },
         {
             "DownstreamPathTemplate": "/UpdateContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -261,7 +261,7 @@
         },
         {
             "DownstreamPathTemplate": "/ViewContent/{IdContent}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -282,7 +282,7 @@
         //CategoryContent
         {
             "DownstreamPathTemplate": "/CreateCategoryContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -302,7 +302,7 @@
         },
         {
             "DownstreamPathTemplate": "/DeleteCategoryContent/{IdCategoryContent}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -322,7 +322,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadAllCategoryContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -342,7 +342,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadCategoryContent/{IdCategoryContent}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -362,7 +362,7 @@
         },
         {
             "DownstreamPathTemplate": "/UpdateCategoryContent",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -383,7 +383,7 @@
         //Category
         {
             "DownstreamPathTemplate": "/CreateCategory",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -403,7 +403,7 @@
         },
         {
             "DownstreamPathTemplate": "/DeleteCategory/{IdCategory}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -423,7 +423,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadAllCategory",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -443,7 +443,7 @@
         },
         {
             "DownstreamPathTemplate": "/ReadCategory/{IdCategory}",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -463,7 +463,7 @@
         },
         {
             "DownstreamPathTemplate": "/UpdateCategory",
-            "DownstreamScheme": "http",
+            "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
