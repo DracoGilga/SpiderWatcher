@@ -10,7 +10,12 @@ namespace RepositoryEFCore.Repositories
         public UserRepository(SpiderWatcherContext context) 
             => Context = context;
 
-        public void CreateUser(User user) => Context.Add(user);
+        public int CreateUser(User user)
+        {
+            Context.Add(user);
+            Context.SaveChanges();
+            return user.UserId; 
+        }
         public User DeleteUser(int id)
         {
             var userToDelete = ReadUser(id);
@@ -36,12 +41,14 @@ namespace RepositoryEFCore.Repositories
 
         public User LoginUser(User user)
         {
-
             var foundUser = Context.Users.SingleOrDefault(u =>
-                u.UserName == user.UserName &&
-                u.Password == user.Password);
+                u.UserName.ToLower() == user.UserName.ToLower() &&
+                u.Password == user.Password &&
+                u.Restore == false &&
+                u.Confirmation == true);
 
             return foundUser;
         }
+
     }
 }

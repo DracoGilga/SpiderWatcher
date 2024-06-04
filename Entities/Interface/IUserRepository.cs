@@ -4,7 +4,7 @@ namespace Entities.Interface
 {
     public interface IUserRepository
     {
-        void CreateUser(User user);
+        int CreateUser(User user);
         User ReadUser(int id);
         bool UpdateUser(User user);
         User DeleteUser(int id);
