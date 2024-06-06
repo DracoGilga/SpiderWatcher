@@ -1,16 +1,16 @@
 using IoC.DependencyContainers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
+using System.Net;
 using System.Text;
 using DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 var jwtSettings = builder.Configuration.GetSection("JWTSettings").Get<JWTSettings>();
 builder.Services.AddSingleton(jwtSettings);
@@ -42,7 +42,23 @@ builder.Services.AddSpiderWatcherUserDependencies(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment()){}
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        context.Response.ContentType = "application/json";
+
+        var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+        var exception = exceptionHandlerPathFeature?.Error;
+
+        await context.Response.WriteAsync(new
+        {
+            Message = "Internal Server Error."
+        }.ToString());
+    });
+});
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -56,9 +72,10 @@ app.UseCors(corsBuilder =>
                .AllowAnyMethod();
 });
 
-app.UseAuthentication(); // Add authentication middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
