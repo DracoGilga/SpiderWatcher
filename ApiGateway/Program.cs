@@ -1,13 +1,19 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using ApiGateway.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddFile("Logs/ApiGateway_{Date}.log");
+    logging.AddConsole(); 
+});
 
 builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -37,6 +43,8 @@ builder.Services.AddOcelot();
 
 var app = builder.Build();
 
+app.UseMiddleware<RequestLoggingMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors();
@@ -44,4 +52,3 @@ app.UseCors();
 app.UseOcelot().Wait();
 
 app.Run();
-

@@ -1,18 +1,17 @@
 using IoC.DependencyContainers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using DTOs; // Asegúrate de que el espacio de nombres es correcto
+using DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure JWT settings
+
 var jwtSettings = builder.Configuration.GetSection("JWTSettings").Get<JWTSettings>();
 builder.Services.AddSingleton(jwtSettings);
 
