@@ -39,15 +39,12 @@ namespace RepositoryEFCore.Repositories
         public bool UpgradeUser(User user) => 
             Context.Users.Update(user) != null;
 
-        public User LoginUser(User user)
+        public User LoginUser(string userName)
         {
-            var foundUser = Context.Users.SingleOrDefault(u =>
-                u.UserName.ToLower() == user.UserName.ToLower() &&
-                u.Password == user.Password &&
-                u.Restore == false &&
-                u.Confirmation == true);
-
-            return foundUser;
+            return Context.Users.SingleOrDefault(u =>
+           u.UserName.ToLower() == userName.ToLower() &&
+           u.Restore == false &&
+           u.Confirmation == true);
         }
 
     }

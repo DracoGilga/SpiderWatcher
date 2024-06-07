@@ -4,6 +4,8 @@ using Entities.Poco;
 using System.Text;
 using UseCasesPort.UserPort.Inputs;
 using UseCasesPort.UserPort.Outputs;
+using BCrypt.Net;
+
 
 namespace UseCases.UserUC
 {
@@ -25,6 +27,9 @@ namespace UseCases.UserUC
             string ValidationMessage = GenerateRandomCode(20);
             DateTime initDateTime = DateTime.Now;
 
+            // Hashear la contraseña del usuario
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
             User NewUser = new()
             {
                 Email = user.Email,
@@ -33,7 +38,7 @@ namespace UseCases.UserUC
                 AccountType = false,
                 DateBirth = user.DateBirth,
                 UserName = user.UserName,
-                Password = user.Password,
+                Password = hashedPassword, // Usar la contraseña hasheada
                 Restore = false,
                 Confirmation = false
             };
@@ -63,7 +68,7 @@ namespace UseCases.UserUC
                 success = SentEmail.CreateUserEmail(NewUserEmail);
             } while (!success);
 
-            if (success) 
+            if (success)
                 await OutputPort.Handle(
                     new CreateUserDTO
                     {

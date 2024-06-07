@@ -1,6 +1,5 @@
 ﻿using DTOs.UserDTO;
 using Entities.Interface;
-using Entities.Poco;
 using UseCasesPort.UserPort.Inputs;
 using UseCasesPort.UserPort.Outputs;
 
@@ -18,22 +17,21 @@ namespace UseCases.UserUC
 
         public async Task Handle(LoginUserDTO user)
         {
-            User NewUser = new()
-            {
-                UserName = user.UserName,
-                Password = user.Password
-            };
+            var storedUser = Repository.LoginUser(user.UserName);
 
-            var result = Repository.LoginUser(NewUser);
-            if (result != null)
+            if (storedUser != null && BCrypt.Net.BCrypt.Verify(user.Password, storedUser.Password))
             {
                 await OutputPort.Handle(
                 new ResultLoginUserDTO
                 {
-                    Restore = result.Restore,
-                    Confirmation = result.Confirmation,
-                    AccountType = result.AccountType
+                    Restore = storedUser.Restore,
+                    Confirmation = storedUser.Confirmation,
+                    AccountType = storedUser.AccountType
                 });
+            }
+            else
+            {
+                await OutputPort.Handle(null);
             }
         }
     }

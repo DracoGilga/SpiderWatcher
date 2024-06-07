@@ -12,6 +12,6 @@ namespace Entities.Interface
         IEnumerable<User> ReadAllUsers();
         bool UpdatePasswordUser(User user);
         bool UpgradeUser(User user);
-        User LoginUser(User user);         
+        User LoginUser(string userName);         
     }
 }
