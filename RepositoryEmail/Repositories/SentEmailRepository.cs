@@ -3,12 +3,10 @@ using Azure;
 using Entities.Interface;
 using Entities.Poco;
 using DTOs;
-using System;
-using System.IO;
 
 namespace RepositoryEmail.Repositories
 {
-    internal class SentEmailRepository : ISentEmail
+    public class SentEmailRepository : ISentEmail
     {
         private readonly EmailClient emailClient;
         private readonly EmailSettings emailSettings;
@@ -18,7 +16,7 @@ namespace RepositoryEmail.Repositories
 
         public bool CreateUserEmail(User user)
         {
-            string subject = "Welcome to our service";
+            string subject = "Welcome to SpiderWatcher";
             string htmlContent = GetHtmlContent("Templates/VerifyCount.html", user.Password);
 
             return SendEmail(user.Email, subject, htmlContent);
@@ -37,7 +35,7 @@ namespace RepositoryEmail.Repositories
             throw new NotImplementedException();
         }
 
-        private bool SendEmail(string toEmail, string subject, string htmlContent)
+        public bool SendEmail(string toEmail, string subject, string htmlContent)
         {
             try
             {
@@ -57,7 +55,7 @@ namespace RepositoryEmail.Repositories
             }
         }
 
-        private string GetHtmlContent(string filePath, string confirmUrl)
+        public string GetHtmlContent(string filePath, string confirmUrl)
         {
             try
             {
