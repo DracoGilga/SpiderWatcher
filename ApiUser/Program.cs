@@ -46,16 +46,27 @@ app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
     {
-        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
         context.Response.ContentType = "application/json";
 
         var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
         var exception = exceptionHandlerPathFeature?.Error;
 
-        await context.Response.WriteAsync(new
+        if (exception is ValidationException)
         {
-            Message = "Internal Server Error."
-        }.ToString());
+            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new
+            {
+                error = exception.Message
+            }));
+        }
+        else
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new
+            {
+                error = "Internal Server Error."
+            }));
+        }
     });
 });
 
@@ -78,4 +89,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
