@@ -1,11 +1,9 @@
-﻿using Entities.Interface;
-using Entities.Poco;
+﻿using Entities.Poco;
 using Microsoft.EntityFrameworkCore;
 using RepositoryEFCore.DataContext;
 using RepositoryEFCore.Repositories;
-using Xunit;
 
-namespace TestSpiderWatcher.CategoryContentRepositoryTest
+namespace TestSpiderWatcher.CategoryContentTest
 {
     public class CategoryContentRepositoryUnitTest
     {

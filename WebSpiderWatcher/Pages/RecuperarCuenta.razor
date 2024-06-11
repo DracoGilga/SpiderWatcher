@@ -1,0 +1,49 @@
+﻿@page "/recuperarCuenta"
+
+<h3>Recover Account</h3>
+
+<div class="container mt-5">
+    <div class="form-container border p-4 rounded">
+        <h2 class="mb-4">Recover Account</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <button type="button" id="send-button" class="btn btn-primary btn-block mb-3" @onclick="SendClicked">Send</button>
+            <div class="form-row align-items-center mb-3">
+                <div class="col">
+                    <input type="text" id="code" name="code" class="form-control" placeholder="Code" required>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-primary" @onclick="VerifyClicked" id="verify-button">Verify</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="new-password" name="new-password" class="form-control" placeholder="New Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" @onclick="RecoverAccount">Accept</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    private string email;
+    private string code;
+    private string newPassword;
+
+    private void SendClicked()
+    {
+        // Correo de recuperación
+    }
+
+    private void VerifyClicked()
+    {
+        // Verificar código de recuperación
+    }
+
+    private void RecoverAccount()
+    {
+        // Recuperar cuenta
+    }
+}

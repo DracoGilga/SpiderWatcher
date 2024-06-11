@@ -1,0 +1,97 @@
+﻿@page "/crearCuenta"
+@inject HttpClient Http
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">Create Account</h2>
+                    <EditForm Model="@user" OnValidSubmit="@CreateAccount">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <InputText id="email" @bind-Value="user.Email" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <InputText id="name" @bind-Value="user.Name" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                            <InputText id="lastname" @bind-Value="user.LastName" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">Birthday:</label>
+                            <InputDate id="birthday" @bind-Value="user.DateBirth" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">User Name:</label>
+                            <InputText id="username" @bind-Value="user.UserName" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <InputText id="password" @bind-Value="user.Password" type="password" class="form-control" required />
+                        </div>
+                        <div class="form-group form-check">
+                            <InputCheckbox id="terms" @bind-Value="termsAgreed" class="form-check-input" required />
+                            <label class="form-check-label" for="terms">By creating an account you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</label>
+                        </div>
+                        <button type="submit" id="submit" class="btn btn-primary" disabled="@(!termsAgreed)">Create Account</button>
+                    </EditForm>
+
+                    @if (!string.IsNullOrEmpty(successMessage))
+                    {
+                        <div class="alert alert-success mt-3">@successMessage</div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <div class="alert alert-danger mt-3">@errorMessage</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserModel user = new UserModel();
+    private bool termsAgreed = false;
+    private string successMessage;
+    private string errorMessage;
+
+    private async Task CreateAccount()
+    {
+        successMessage = string.Empty;
+        errorMessage = string.Empty;
+
+        try
+        {
+            var response = await Http.PostAsJsonAsync("User", user);
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Account created successfully!";
+            }
+            else
+            {
+                errorMessage = "Failed to create account.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+
+    public class UserModel
+    {
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public DateOnly DateBirth { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
+}

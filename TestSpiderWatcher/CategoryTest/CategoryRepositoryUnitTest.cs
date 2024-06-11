@@ -5,7 +5,7 @@ using RepositoryEFCore.DataContext;
 using RepositoryEFCore.Repositories;
 using Xunit;
 
-namespace TestSpiderWatcher.CategoryRepositoryTest
+namespace TestSpiderWatcher.CategoryTest
 {
     public class CategoryRepositoryUnitTest
     {

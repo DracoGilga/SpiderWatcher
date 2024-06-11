@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RepositoryEFCore.DataContext;
 using RepositoryEFCore.Repositories;
 
-namespace TestSpiderWatcher.ContentRepositoryTest
+namespace TestSpiderWatcher.ContentTest
 {
     public class ContentRepositoryUnitTest
     {
