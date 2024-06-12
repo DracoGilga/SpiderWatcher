@@ -60,7 +60,7 @@ namespace UseCases.UserUC
                 Confirmation = false
             };
 
-            Repository.CreateUser(NewUser);
+            int Response = Repository.CreateUser(NewUser);
             await UnitOfWork.SaveChanges();
 
             var NewValidation = new Validation
@@ -87,14 +87,9 @@ namespace UseCases.UserUC
 
             if (success)
                 await OutputPort.Handle(
-                    new CreateUserDTO
+                    new CreateUserSuccessDTO
                     {
-                        Email = NewUser.Email,
-                        Name = NewUser.Name,
-                        LastName = NewUser.LastName,
-                        DateBirth = NewUser.DateBirth,
-                        UserName = NewUser.UserName,
-                        Password = NewUser.Password,
+                        IdUser = Response
                     }
                 );
         }

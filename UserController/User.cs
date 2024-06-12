@@ -72,7 +72,7 @@ namespace UserController
         }
 
         [HttpPost]
-        public async Task<CreateUserDTO> Create(CreateUserDTO userDTO)
+        public async Task<CreateUserSuccessDTO> Create(CreateUserDTO userDTO)
         {
             await CreateUserInputPort.Handle(userDTO);
             return ((CreateUserPresenter)CreateUserOutputPort).Content;
