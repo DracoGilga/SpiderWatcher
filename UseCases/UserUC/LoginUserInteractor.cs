@@ -24,6 +24,7 @@ namespace UseCases.UserUC
                 await OutputPort.Handle(
                 new ResultLoginUserDTO
                 {
+                    IdUser = storedUser.UserId,
                     Restore = storedUser.Restore,
                     Confirmation = storedUser.Confirmation,
                     AccountType = storedUser.AccountType
