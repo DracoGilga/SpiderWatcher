@@ -30,7 +30,8 @@ namespace UseCases.UserUC
                     IdUser = User.UserId,
                     Email = User.Email,
                     UserName = User.UserName,
-                    Password = User.Password
+                    Password = User.Password,
+                    DateBirth = User.DateBirth
                 });
         }
     }

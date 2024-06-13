@@ -9,7 +9,7 @@ namespace Entities.Interface
         bool UpdateContent(Content content);
         Content DeleteContent(int id);
 
-        IEnumerable<Content> ReadAllContents();
+        IEnumerable<Content> ReadAllContents(int idUser);
         Content ViewContent(Content content);
     }
 }

@@ -25,8 +25,30 @@ namespace RepositoryEFCore.Repositories
             return null;
         }
 
-        public IEnumerable<Content> ReadAllContents() => 
-            Context.Contents ?? null;
+        public IEnumerable<Content> ReadAllContents(int idUser)
+        {
+            var DateBirth = Context.Users
+                .Where(u => u.UserId == idUser)
+                .Select(u => u.DateBirth)
+                .FirstOrDefault();
+
+            var userAge = DateTime.Today.Year - DateBirth.Year;
+
+            var contents = Context.Contents
+                .Join(Context.CategoryContents,
+                      content => content.ContentId,
+                      categoryContent => categoryContent.ContentId,
+                      (content, categoryContent) => new { Content = content, CategoryContent = categoryContent })
+                .Join(Context.Categories,
+                      combined => combined.CategoryContent.CategoryId,
+                      category => category.CategoryId,
+                      (combined, category) => new { Content = combined.Content, Category = category })
+                .Where(x => userAge >= x.Category.MiniumAge)
+                .Select(x => x.Content)
+                .ToList();
+
+            return contents;
+        }
         public Content ReadContent(int id) => 
             Context.Contents.FirstOrDefault(c => c.ContentId == id) ?? null;
         public bool UpdateContent(Content content) => 

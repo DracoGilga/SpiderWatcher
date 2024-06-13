@@ -1,7 +1,9 @@
-﻿namespace UseCasesPort.ContentPorts.Inputs
+﻿using DTOs.UserDTO;
+
+namespace UseCasesPort.ContentPorts.Inputs
 {
     public interface IReadAllContentInputPort
     {
-        Task Handle();
+        Task Handle(CreateUserSuccessDTO user);
     }
 }

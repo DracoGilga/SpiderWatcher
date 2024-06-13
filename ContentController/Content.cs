@@ -5,6 +5,7 @@ using UseCasesPort.ContentPorts.Inputs;
 using UseCasesPort.ContentPorts.Outputs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DTOs.UserDTO;
 
 namespace ContentController
 {
@@ -67,10 +68,10 @@ namespace ContentController
             return ((DeleteContentPresenter)DeleteContentOutputPort).Content;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ContentsDTO>>> ReadAll()
+        [HttpGet("all/{idUser}")]
+        public async Task<ActionResult<IEnumerable<ContentsDTO>>> ReadAll(int idUser)
         {
-            await ReadAllContentInputPort.Handle();
+            await ReadAllContentInputPort.Handle(new CreateUserSuccessDTO { IdUser = idUser });
             return Ok(((ReadAllContentPresenter)ReadAllContentOutputPort).Content);
         }
 

@@ -1,495 +1,527 @@
 {
-    "Routes": [
-        //User
-        {
-            "DownstreamPathTemplate": "/CreateUser",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcheruser.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/User/CreateUser",
-            "UpstreamHttpMethod": [
-                "Post"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/LoginUser",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcheruser.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/User/LoginUser",
-            "UpstreamHttpMethod": [
-                "Post"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/ReadUser/{IdUser}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcheruser.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/User/ReadUser/{IdUser}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/UpdateUser",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcheruser.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/User/UpdateUser",
-            "UpstreamHttpMethod": [
-                "Put"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/UpgradeUser",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcheruser.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/User/UpgradeUser",
-            "UpstreamHttpMethod": [
-                "Put"
-            ]
-        },
-        //HistoryPlayback
-        {
-            "DownstreamPathTemplate": "/CreateHistoryPlayback",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/HistoryPlayback/CreateHistoryPlayback",
-            "UpstreamHttpMethod": [
-                "Post"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/DeleteHistoryPlayback/{IdHistoryPlayback}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/HistoryPlayback/DeleteHistoryPlayback/{IdHistoryPlayback}",
-            "UpstreamHttpMethod": [
-                "Delete"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadAllHistoryPlayback",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/HistoryPlayback/ReadAllHistoryPlayback",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadHistoryPlayback/{IdHistoryPlayback}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/HistoryPlayback/ReadHistoryPlayback/{IdHistoryPlayback}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/UpdateHistoryPlayback",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/HistoryPlayback/UpdateHistoryPlayback",
-            "UpstreamHttpMethod": [
-                "Put"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        //Content
-        {
-            "DownstreamPathTemplate": "/CreateContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Content/CreateContent",
-            "UpstreamHttpMethod": [
-                "Post"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            },
-            "RouteClaimsRequirement": {
-                "AccountType": "true"
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadAllContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Content/ReadAllContent",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadContent/{IdContent}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Content/ReadContent/{IdContent}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/UpdateContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Content/UpdateContent",
-            "UpstreamHttpMethod": [
-                "Put"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            },
-            "RouteClaimsRequirement": {
-                "AccountType": "true"
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ViewContent/{IdContent}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Content/ViewContent/{IdContent}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        //CategoryContent
-        {
-            "DownstreamPathTemplate": "/CreateCategoryContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/CategoryContent/CreateCategoryContent",
-            "UpstreamHttpMethod": [
-                "Post"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/DeleteCategoryContent/{IdCategoryContent}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/CategoryContent/DeleteCategoryContent/{IdCategoryContent}",
-            "UpstreamHttpMethod": [
-                "Delete"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadAllCategoryContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/CategoryContent/ReadAllCategoryContent",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadCategoryContent/{IdCategoryContent}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/CategoryContent/ReadCategoryContent/{IdCategoryContent}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/UpdateCategoryContent",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategorycontent.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/CategoryContent/UpdateCategoryContent",
-            "UpstreamHttpMethod": [
-                "Put"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        //Category
-        {
-            "DownstreamPathTemplate": "/CreateCategory",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategory.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Category/CreateCategoryContent",
-            "UpstreamHttpMethod": [
-                "Post"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/DeleteCategory/{IdCategory}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategory.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Category/DeleteCategory/{IdCategory}",
-            "UpstreamHttpMethod": [
-                "Delete"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadAllCategory",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategory.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Category/ReadAllCategory",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/ReadCategory/{IdCategory}",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategory.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Category/ReadCategory/{IdCategory}",
-            "UpstreamHttpMethod": [
-                "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        },
-        {
-            "DownstreamPathTemplate": "/UpdateCategory",
-            "DownstreamScheme": "https",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "apispiderwatchercategory.azurewebsites.net",
-                    "Port": 443
-                }
-            ],
-            "UpstreamPathTemplate": "/Category/UpdateCategory",
-            "UpstreamHttpMethod": [
-                "Put"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": [
-                    "SpiderWatcherJWT"
-                ]
-            }
-        }
-    ],
-    "GlobalConfiguration": {
-        "BaseUrl": "https://apigatewaysw.azurewebsites.net",
-        "RateLimitOptions": {
-            "ClientWhitelist": [],
-            "EnableRateLimiting": true,
-            "Period": "1s",
-            "PeriodTimespan": 1,
-            "Limit": 100
-        }
-    }
+	"Routes": [
+		//AllConfigurations
+		{
+			"DownstreamPathTemplate": "/{everything}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				},
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				},
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				},
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				},
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/{everything}",
+			"UpstreamHttpMethod": [
+				"OPTIONS"
+			],
+			"Priority": 1
+		},
+		//User
+		{
+			"DownstreamPathTemplate": "/CreateUser",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/CreateUser",
+			"UpstreamHttpMethod": [
+				"Post"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/LoginUser",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/LoginUser",
+			"UpstreamHttpMethod": [
+				"Post"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/ReadUser/{IdUser}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/ReadUser/{IdUser}",
+			"UpstreamHttpMethod": [
+				"Get"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/UpdateUser",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/UpdateUser",
+			"UpstreamHttpMethod": [
+				"Put"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/UpgradeUser",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/UpgradeUser",
+			"UpstreamHttpMethod": [
+				"Put"
+			]
+		},
+		//HistoryPlayback
+		{
+			"DownstreamPathTemplate": "/CreateHistoryPlayback",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/HistoryPlayback/CreateHistoryPlayback",
+			"UpstreamHttpMethod": [
+				"Post"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/DeleteHistoryPlayback/{IdHistoryPlayback}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/HistoryPlayback/DeleteHistoryPlayback/{IdHistoryPlayback}",
+			"UpstreamHttpMethod": [
+				"Delete"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadAllHistoryPlayback",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/HistoryPlayback/ReadAllHistoryPlayback",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadHistoryPlayback/{IdHistoryPlayback}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/HistoryPlayback/ReadHistoryPlayback/{IdHistoryPlayback}",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/UpdateHistoryPlayback",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcherhistoryplayback.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/HistoryPlayback/UpdateHistoryPlayback",
+			"UpstreamHttpMethod": [
+				"Put"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		//Content
+		{
+			"DownstreamPathTemplate": "/CreateContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Content/CreateContent",
+			"UpstreamHttpMethod": [
+				"Post"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			},
+			"RouteClaimsRequirement": {
+				"AccountType": "true"
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadAllContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Content/ReadAllContent",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadContent/{IdContent}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Content/ReadContent/{IdContent}",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/UpdateContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Content/UpdateContent",
+			"UpstreamHttpMethod": [
+				"Put"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			},
+			"RouteClaimsRequirement": {
+				"AccountType": "true"
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ViewContent/{IdContent}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Content/ViewContent/{IdContent}",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		//CategoryContent
+		{
+			"DownstreamPathTemplate": "/CreateCategoryContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/CategoryContent/CreateCategoryContent",
+			"UpstreamHttpMethod": [
+				"Post"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/DeleteCategoryContent/{IdCategoryContent}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/CategoryContent/DeleteCategoryContent/{IdCategoryContent}",
+			"UpstreamHttpMethod": [
+				"Delete"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadAllCategoryContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/CategoryContent/ReadAllCategoryContent",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadCategoryContent/{IdCategoryContent}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/CategoryContent/ReadCategoryContent/{IdCategoryContent}",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/UpdateCategoryContent",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategorycontent.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/CategoryContent/UpdateCategoryContent",
+			"UpstreamHttpMethod": [
+				"Put"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		//Category
+		{
+			"DownstreamPathTemplate": "/CreateCategory",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Category/CreateCategoryContent",
+			"UpstreamHttpMethod": [
+				"Post"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/DeleteCategory/{IdCategory}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Category/DeleteCategory/{IdCategory}",
+			"UpstreamHttpMethod": [
+				"Delete"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadAllCategory",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Category/ReadAllCategory",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/ReadCategory/{IdCategory}",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Category/ReadCategory/{IdCategory}",
+			"UpstreamHttpMethod": [
+				"Get"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/UpdateCategory",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatchercategory.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/Category/UpdateCategory",
+			"UpstreamHttpMethod": [
+				"Put"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": [
+					"SpiderWatcherJWT"
+				]
+			}
+		}
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "https://apigatewaysw.azurewebsites.net",
+		"RateLimitOptions": {
+			"ClientWhitelist": [],
+			"EnableRateLimiting": true,
+			"Period": "1s",
+			"PeriodTimespan": 1,
+			"Limit": 100
+		}
+	}
 }
