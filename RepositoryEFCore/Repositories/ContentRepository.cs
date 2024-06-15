@@ -45,6 +45,8 @@ namespace RepositoryEFCore.Repositories
                       (combined, category) => new { Content = combined.Content, Category = category })
                 .Where(x => userAge >= x.Category.MiniumAge)
                 .Select(x => x.Content)
+                .Distinct()
+                .OrderBy(content => content.Title) 
                 .ToList();
 
             return contents;
