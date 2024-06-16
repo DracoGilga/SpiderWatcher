@@ -34,7 +34,7 @@
 		},
 		//User
 		{
-			"DownstreamPathTemplate": "/CreateUser",
+			"DownstreamPathTemplate": "/User",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -42,13 +42,13 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/User/CreateUser",
+			"UpstreamPathTemplate": "/User",
 			"UpstreamHttpMethod": [
 				"Post"
 			]
 		},
 		{
-			"DownstreamPathTemplate": "/LoginUser",
+			"DownstreamPathTemplate": "/User/login",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -56,13 +56,13 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/User/LoginUser",
+			"UpstreamPathTemplate": "/User/login",
 			"UpstreamHttpMethod": [
 				"Post"
 			]
 		},
 		{
-			"DownstreamPathTemplate": "/ReadUser/{IdUser}",
+			"DownstreamPathTemplate": "/User/{IdUser}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -70,13 +70,13 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/User/ReadUser/{IdUser}",
+			"UpstreamPathTemplate": "/User/{IdUser}",
 			"UpstreamHttpMethod": [
 				"Get"
 			]
 		},
 		{
-			"DownstreamPathTemplate": "/UpdateUser",
+			"DownstreamPathTemplate": "/User",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -84,28 +84,14 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/User/UpdateUser",
-			"UpstreamHttpMethod": [
-				"Put"
-			]
-		},
-		{
-			"DownstreamPathTemplate": "/UpgradeUser",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "apispiderwatcheruser.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/User/UpgradeUser",
+			"UpstreamPathTemplate": "/User",
 			"UpstreamHttpMethod": [
 				"Put"
 			]
 		},
 		//HistoryPlayback
 		{
-			"DownstreamPathTemplate": "/CreateHistoryPlayback",
+			"DownstreamPathTemplate": "/HistoryPlayback",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -113,7 +99,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback/CreateHistoryPlayback",
+			"UpstreamPathTemplate": "/HistoryPlayback",
 			"UpstreamHttpMethod": [
 				"Post"
 			],
@@ -125,7 +111,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/DeleteHistoryPlayback/{IdHistoryPlayback}",
+			"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -133,7 +119,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback/DeleteHistoryPlayback/{IdHistoryPlayback}",
+			"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
 			"UpstreamHttpMethod": [
 				"Delete"
 			],
@@ -145,7 +131,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadAllHistoryPlayback",
+			"DownstreamPathTemplate": "/HistoryPlayback",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -153,7 +139,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback/ReadAllHistoryPlayback",
+			"UpstreamPathTemplate": "/HistoryPlayback",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -165,7 +151,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadHistoryPlayback/{IdHistoryPlayback}",
+			"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -173,7 +159,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback/ReadHistoryPlayback/{IdHistoryPlayback}",
+			"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -185,7 +171,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/UpdateHistoryPlayback",
+			"DownstreamPathTemplate": "/HistoryPlayback",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -193,7 +179,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback/UpdateHistoryPlayback",
+			"UpstreamPathTemplate": "/HistoryPlayback",
 			"UpstreamHttpMethod": [
 				"Put"
 			],
@@ -206,7 +192,7 @@
 		},
 		//Content
 		{
-			"DownstreamPathTemplate": "/CreateContent",
+			"DownstreamPathTemplate": "/Content",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -214,7 +200,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Content/CreateContent",
+			"UpstreamPathTemplate": "/Content",
 			"UpstreamHttpMethod": [
 				"Post"
 			],
@@ -229,7 +215,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadAllContent",
+			"DownstreamPathTemplate": "/Content/all/{idUser}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -237,7 +223,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Content/ReadAllContent",
+			"UpstreamPathTemplate": "/Content/all/{idUser}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -249,7 +235,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadContent/{IdContent}",
+			"DownstreamPathTemplate": "/Content/{IdContent}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -257,7 +243,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Content/ReadContent/{IdContent}",
+			"UpstreamPathTemplate": "/Content/{IdContent}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -269,7 +255,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/UpdateContent",
+			"DownstreamPathTemplate": "/Content",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -277,7 +263,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Content/UpdateContent",
+			"UpstreamPathTemplate": "/Content",
 			"UpstreamHttpMethod": [
 				"Put"
 			],
@@ -292,7 +278,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ViewContent/{IdContent}",
+			"DownstreamPathTemplate": "/Content/View/{IdContent}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -300,7 +286,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Content/ViewContent/{IdContent}",
+			"UpstreamPathTemplate": "/Content/View/{IdContent}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -313,7 +299,7 @@
 		},
 		//CategoryContent
 		{
-			"DownstreamPathTemplate": "/CreateCategoryContent",
+			"DownstreamPathTemplate": "/CategoryContent",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -321,7 +307,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/CategoryContent/CreateCategoryContent",
+			"UpstreamPathTemplate": "/CategoryContent",
 			"UpstreamHttpMethod": [
 				"Post"
 			],
@@ -333,7 +319,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/DeleteCategoryContent/{IdCategoryContent}",
+			"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -341,7 +327,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/CategoryContent/DeleteCategoryContent/{IdCategoryContent}",
+			"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
 			"UpstreamHttpMethod": [
 				"Delete"
 			],
@@ -353,7 +339,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadAllCategoryContent",
+			"DownstreamPathTemplate": "/CategoryContent",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -361,7 +347,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/CategoryContent/ReadAllCategoryContent",
+			"UpstreamPathTemplate": "/CategoryContent",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -373,7 +359,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadCategoryContent/{IdCategoryContent}",
+			"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -381,7 +367,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/CategoryContent/ReadCategoryContent/{IdCategoryContent}",
+			"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -393,7 +379,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/UpdateCategoryContent",
+			"DownstreamPathTemplate": "/CategoryContent",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -401,7 +387,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/CategoryContent/UpdateCategoryContent",
+			"UpstreamPathTemplate": "/CategoryContent",
 			"UpstreamHttpMethod": [
 				"Put"
 			],
@@ -414,7 +400,7 @@
 		},
 		//Category
 		{
-			"DownstreamPathTemplate": "/CreateCategory",
+			"DownstreamPathTemplate": "/Category",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -422,7 +408,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Category/CreateCategoryContent",
+			"UpstreamPathTemplate": "/Category",
 			"UpstreamHttpMethod": [
 				"Post"
 			],
@@ -434,7 +420,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/DeleteCategory/{IdCategory}",
+			"DownstreamPathTemplate": "/Category/{IdCategory}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -442,7 +428,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Category/DeleteCategory/{IdCategory}",
+			"UpstreamPathTemplate": "/Category/{IdCategory}",
 			"UpstreamHttpMethod": [
 				"Delete"
 			],
@@ -454,7 +440,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadAllCategory",
+			"DownstreamPathTemplate": "/Category",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -462,7 +448,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Category/ReadAllCategory",
+			"UpstreamPathTemplate": "/Category",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -474,7 +460,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/ReadCategory/{IdCategory}",
+			"DownstreamPathTemplate": "/Category/{IdCategory}",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -482,7 +468,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Category/ReadCategory/{IdCategory}",
+			"UpstreamPathTemplate": "/Category/{IdCategory}",
 			"UpstreamHttpMethod": [
 				"Get"
 			],
@@ -494,7 +480,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/UpdateCategory",
+			"DownstreamPathTemplate": "/Category",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
@@ -502,7 +488,7 @@
 					"Port": 443
 				}
 			],
-			"UpstreamPathTemplate": "/Category/UpdateCategory",
+			"UpstreamPathTemplate": "/Category",
 			"UpstreamHttpMethod": [
 				"Put"
 			],
