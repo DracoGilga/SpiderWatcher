@@ -48,6 +48,20 @@
 			]
 		},
 		{
+			"DownstreamPathTemplate": "/User/Recover",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 4430
+				}
+			],
+			"UpstreamPathTemplate": "/User/Recover",
+			"UpstreamHttpMethod": [
+				"Post"
+			]
+		},
+		{
 			"DownstreamPathTemplate": "/User/login",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
