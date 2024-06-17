@@ -48,20 +48,6 @@
 			]
 		},
 		{
-			"DownstreamPathTemplate": "/User/Recover",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "apispiderwatcheruser.azurewebsites.net",
-					"Port": 443
-				}
-			],
-			"UpstreamPathTemplate": "/User/Recover",
-			"UpstreamHttpMethod": [
-				"Post"
-			]
-		},
-		{
 			"DownstreamPathTemplate": "/User/login",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
@@ -101,6 +87,20 @@
 			"UpstreamPathTemplate": "/User",
 			"UpstreamHttpMethod": [
 				"Put"
+			]
+		},
+        {
+			"DownstreamPathTemplate": "/User/Recover",
+			"DownstreamScheme": "https",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "apispiderwatcheruser.azurewebsites.net",
+					"Port": 443
+				}
+			],
+			"UpstreamPathTemplate": "/User/Recover",
+			"UpstreamHttpMethod": [
+				"Post"
 			]
 		},
 		//HistoryPlayback
