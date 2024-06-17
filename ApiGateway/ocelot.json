@@ -89,416 +89,430 @@
 				"Put"
 			]
 		},
-		//HistoryPlayback
 		{
-			"DownstreamPathTemplate": "/HistoryPlayback",
+			"DownstreamPathTemplate": "/User/Recover",
 			"DownstreamScheme": "https",
 			"DownstreamHostAndPorts": [
 				{
 					"Host": "localhost",
-					"Port": 4434
+					"Port": 4430
 				}
 			],
-			"UpstreamPathTemplate": "/HistoryPlayback",
+			"UpstreamPathTemplate": "/User/Recover",
 			"UpstreamHttpMethod": [
 				"Post"
 			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
 		},
-		{
-			"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4434
+			//HistoryPlayback
+			{
+				"DownstreamPathTemplate": "/HistoryPlayback",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4434
+					}
+				],
+				"UpstreamPathTemplate": "/HistoryPlayback",
+				"UpstreamHttpMethod": [
+					"Post"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
-			"UpstreamHttpMethod": [
-				"Delete"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/HistoryPlayback",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4434
-				}
-			],
-			"UpstreamPathTemplate": "/HistoryPlayback",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4434
-				}
-			],
-			"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/HistoryPlayback",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4434
-				}
-			],
-			"UpstreamPathTemplate": "/HistoryPlayback",
-			"UpstreamHttpMethod": [
-				"Put"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		//Content
-		{
-			"DownstreamPathTemplate": "/Content",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4433
-				}
-			],
-			"UpstreamPathTemplate": "/Content",
-			"UpstreamHttpMethod": [
-				"Post"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
 			},
-			"RouteClaimsRequirement": {
-				"AccountType": "true"
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Content/all/{idUser}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4433
+			{
+				"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4434
+					}
+				],
+				"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
+				"UpstreamHttpMethod": [
+					"Delete"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Content/all/{idUser}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Content/{IdContent}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4433
-				}
-			],
-			"UpstreamPathTemplate": "/Content/{IdContent}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Content",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4433
-				}
-			],
-			"UpstreamPathTemplate": "/Content",
-			"UpstreamHttpMethod": [
-				"Put"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
 			},
-			"RouteClaimsRequirement": {
-				"AccountType": "true"
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Content/View/{IdContent}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4433
+			{
+				"DownstreamPathTemplate": "/HistoryPlayback",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4434
+					}
+				],
+				"UpstreamPathTemplate": "/HistoryPlayback",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Content/View/{IdContent}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		//CategoryContent
-		{
-			"DownstreamPathTemplate": "/CategoryContent",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4432
+			},
+			{
+				"DownstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4434
+					}
+				],
+				"UpstreamPathTemplate": "/HistoryPlayback/{IdHistoryPlayback}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/CategoryContent",
-			"UpstreamHttpMethod": [
-				"Post"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4432
+			},
+			{
+				"DownstreamPathTemplate": "/HistoryPlayback",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4434
+					}
+				],
+				"UpstreamPathTemplate": "/HistoryPlayback",
+				"UpstreamHttpMethod": [
+					"Put"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
-			"UpstreamHttpMethod": [
-				"Delete"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/CategoryContent",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4432
+			},
+			//Content
+			{
+				"DownstreamPathTemplate": "/Content",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4433
+					}
+				],
+				"UpstreamPathTemplate": "/Content",
+				"UpstreamHttpMethod": [
+					"Post"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				},
+				"RouteClaimsRequirement": {
+					"AccountType": "true"
 				}
-			],
-			"UpstreamPathTemplate": "/CategoryContent",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4432
+			},
+			{
+				"DownstreamPathTemplate": "/Content/all/{idUser}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4433
+					}
+				],
+				"UpstreamPathTemplate": "/Content/all/{idUser}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/CategoryContent",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4432
+			},
+			{
+				"DownstreamPathTemplate": "/Content/{IdContent}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4433
+					}
+				],
+				"UpstreamPathTemplate": "/Content/{IdContent}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/CategoryContent",
-			"UpstreamHttpMethod": [
-				"Put"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		//Category
-		{
-			"DownstreamPathTemplate": "/Category",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4431
+			},
+			{
+				"DownstreamPathTemplate": "/Content",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4433
+					}
+				],
+				"UpstreamPathTemplate": "/Content",
+				"UpstreamHttpMethod": [
+					"Put"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				},
+				"RouteClaimsRequirement": {
+					"AccountType": "true"
 				}
-			],
-			"UpstreamPathTemplate": "/Category",
-			"UpstreamHttpMethod": [
-				"Post"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Category/{IdCategory}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4431
+			},
+			{
+				"DownstreamPathTemplate": "/Content/View/{IdContent}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4433
+					}
+				],
+				"UpstreamPathTemplate": "/Content/View/{IdContent}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Category{IdCategory}",
-			"UpstreamHttpMethod": [
-				"Delete"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Category",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4431
+			},
+			//CategoryContent
+			{
+				"DownstreamPathTemplate": "/CategoryContent",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4432
+					}
+				],
+				"UpstreamPathTemplate": "/CategoryContent",
+				"UpstreamHttpMethod": [
+					"Post"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Category",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Category/{IdCategory}",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4431
+			},
+			{
+				"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4432
+					}
+				],
+				"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
+				"UpstreamHttpMethod": [
+					"Delete"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Category/{IdCategory}",
-			"UpstreamHttpMethod": [
-				"Get"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/Category",
-			"DownstreamScheme": "https",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 4431
+			},
+			{
+				"DownstreamPathTemplate": "/CategoryContent",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4432
+					}
+				],
+				"UpstreamPathTemplate": "/CategoryContent",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
 				}
-			],
-			"UpstreamPathTemplate": "/Category",
-			"UpstreamHttpMethod": [
-				"Put"
-			],
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "Bearer",
-				"AllowedScopes": [
-					"SpiderWatcherJWT"
-				]
+			},
+			{
+				"DownstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4432
+					}
+				],
+				"UpstreamPathTemplate": "/CategoryContent/{IdCategoryContent}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			{
+				"DownstreamPathTemplate": "/CategoryContent",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4432
+					}
+				],
+				"UpstreamPathTemplate": "/CategoryContent",
+				"UpstreamHttpMethod": [
+					"Put"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			//Category
+			{
+				"DownstreamPathTemplate": "/Category",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4431
+					}
+				],
+				"UpstreamPathTemplate": "/Category",
+				"UpstreamHttpMethod": [
+					"Post"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			{
+				"DownstreamPathTemplate": "/Category/{IdCategory}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4431
+					}
+				],
+				"UpstreamPathTemplate": "/Category{IdCategory}",
+				"UpstreamHttpMethod": [
+					"Delete"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			{
+				"DownstreamPathTemplate": "/Category",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4431
+					}
+				],
+				"UpstreamPathTemplate": "/Category",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			{
+				"DownstreamPathTemplate": "/Category/{IdCategory}",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4431
+					}
+				],
+				"UpstreamPathTemplate": "/Category/{IdCategory}",
+				"UpstreamHttpMethod": [
+					"Get"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
+			},
+			{
+				"DownstreamPathTemplate": "/Category",
+				"DownstreamScheme": "https",
+				"DownstreamHostAndPorts": [
+					{
+						"Host": "localhost",
+						"Port": 4431
+					}
+				],
+				"UpstreamPathTemplate": "/Category",
+				"UpstreamHttpMethod": [
+					"Put"
+				],
+				"AuthenticationOptions": {
+					"AuthenticationProviderKey": "Bearer",
+					"AllowedScopes": [
+						"SpiderWatcherJWT"
+					]
+				}
 			}
-		}
 	],
 	"GlobalConfiguration": {
 		"BaseUrl": "http://localhost:8001",
