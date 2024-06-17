@@ -30,5 +30,32 @@ namespace RepositoryEFCore.Repositories
                 return true;
             }
         }
+
+        public string RecoverPasswordValidation(string email)
+        {
+            var user = Context.Users.FirstOrDefault(u => u.Email == email);
+
+            if (user == null)
+                return null;
+
+            user.Restore = true;
+
+            var random = new Random();
+            var validationMessage = random.Next(10000, 99999).ToString();
+            var validation = new Validation
+            {
+                UserId = user.UserId,
+                ValidationMessage = validationMessage,
+                InitDateTime = DateTime.Now,
+                Used = false
+            };
+
+            Context.Validations.Add(validation);
+
+            Context.SaveChanges();
+
+            return validationMessage;
+        }
+
     }
 }

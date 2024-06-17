@@ -31,6 +31,8 @@ namespace UserController
         private readonly IUpdateUserOutputPort UpdateUserOutputPort;
         private readonly IUpgradeUserInputPort UpgradeUserInputPort;
         private readonly IUpgradeUserOutputPort UpgradeUserOutputPort;
+        private readonly IRecoverPasswordInputPort RecoverPasswordInputPort;
+        private readonly IRecoverPasswordOutputPort RecoverPasswordOutputPort;
         private readonly JWTSettings JwtSettings;
 
         public User(
@@ -50,6 +52,8 @@ namespace UserController
             IUpdateUserOutputPort updateUserOutputPort,
             IUpgradeUserInputPort upgradeUserInputPort,
             IUpgradeUserOutputPort upgradeUserOutputPort,
+            IRecoverPasswordInputPort recoverPasswordInputPort,
+            IRecoverPasswordOutputPort recoverPasswordOutputPort,
             JWTSettings jwtSettings)
         {
             CreateUserInputPort = createUserInputPort;
@@ -68,6 +72,8 @@ namespace UserController
             UpdateUserOutputPort = updateUserOutputPort;
             UpgradeUserInputPort = upgradeUserInputPort;
             UpgradeUserOutputPort = upgradeUserOutputPort;
+            RecoverPasswordInputPort = recoverPasswordInputPort;
+            RecoverPasswordOutputPort = recoverPasswordOutputPort;
             JwtSettings = jwtSettings;
         }
 
@@ -120,9 +126,10 @@ namespace UserController
                 case "UpdatePassword":
                     var updatePasswordDTO = new UpdatePasswordUserDTO
                     {
-                        IdUser = userDTO.IdUser,
+
                         Password = userDTO.Password,
-                        Restore = userDTO.Restore ?? false
+                        ValidationMessage = userDTO.ValidationMessage,
+                        Email = userDTO.UserEmail
                     };
                     await UpdatePasswordUserInputPort.Handle(updatePasswordDTO);
                     return Ok(((UpdatePasswordUserPresenter)UpdatePasswordUserOutputPort).Content);
@@ -149,6 +156,13 @@ namespace UserController
                 default:
                     return BadRequest("Invalid UpdateType");
             }
+        }
+
+        [HttpPost("Recover")]
+        public async Task<RecoverPasswordDTO> Recover(RecoverPasswordDTO recover)
+        {
+            await RecoverPasswordInputPort.Handle(recover);
+            return ((RecoverPasswordPresenter)RecoverPasswordOutputPort).Content;
         }
 
         private string GenerateJwtToken(ResultLoginUserDTO user)

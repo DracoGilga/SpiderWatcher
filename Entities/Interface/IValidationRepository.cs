@@ -6,5 +6,7 @@ namespace Entities.Interface
     {
         void CreateValidation(Validation validation);
         bool ReadValidation(Validation validation);
+
+        string RecoverPasswordValidation(string Email);
     }
 }

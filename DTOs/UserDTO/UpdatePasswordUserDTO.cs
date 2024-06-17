@@ -2,9 +2,8 @@
 {
     public class UpdatePasswordUserDTO
     {
-        public int IdUser { get; init; }
         public string Password { get; init; }
-        public bool Restore { get; init; }
-
+        public string ValidationMessage { get; set; }
+        public string Email { get; init; }
     }
 }

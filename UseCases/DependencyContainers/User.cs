@@ -24,6 +24,8 @@ namespace UseCases.DependencyContainers
                 <ILoginUserInputPort, LoginUserInteractor>();
             services.AddTransient
                 <IUpgradeUserInputPort, UpgradeUserInteractor>();
+            services.AddTransient
+                <IRecoverPasswordInputPort, RecoverPasswordInteractor>();
 
             return services;
         }

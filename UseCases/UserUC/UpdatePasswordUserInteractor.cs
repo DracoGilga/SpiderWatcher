@@ -9,32 +9,58 @@ namespace UseCases.UserUC
     public class UpdatePasswordUserInteractor : IUpdatePasswordUserInputPort
     {
         readonly IUserRepository Repository;
+        readonly IValidationRepository ValidationRepository;
         readonly IUnitOfWork UnitOfWork;
         readonly IUpdatePasswordUserOutputPort OutputPort;
 
-        public UpdatePasswordUserInteractor(IUserRepository repository, 
+        public UpdatePasswordUserInteractor(IUserRepository repository, IValidationRepository validationRepository, 
                        IUnitOfWork unitOfWork, IUpdatePasswordUserOutputPort outputPort) =>
-            (Repository, UnitOfWork, OutputPort) = 
-            (repository, unitOfWork, outputPort);
+            (Repository, ValidationRepository, UnitOfWork, OutputPort) = 
+            (repository, validationRepository, unitOfWork, outputPort);
 
-        public async Task Handle(UpdatePasswordUserDTO user)
+        public async Task Handle(UpdatePasswordUserDTO userDto)
         {
-            User existingUser = Repository.ReadUser(user.IdUser);
-            if (existingUser != null)
+            try
             {
-                if (!existingUser.Restore)
+                int userId = Repository.ReadUserXEmail(userDto.Email);
+                User user = Repository.ReadUser(userId);
+
+                if (user == null)
                 {
-                    existingUser.Restore = true;
-                    existingUser.Password = user.Password;
+                    throw new Exception("User not found.");
                 }
 
-                bool success = Repository.UpdateUser(existingUser);
-                if (success)
+                if (!string.IsNullOrEmpty(userDto.ValidationMessage))
                 {
-                    await UnitOfWork.SaveChanges();
-                    await OutputPort.Handle(user);
+                    Validation validation = new()
+                    {
+                        UserId = userId,
+                        ValidationMessage = userDto.ValidationMessage
+                    };
+
+                    if (!ValidationRepository.ReadValidation(validation))
+                        throw new InvalidOperationException("Invalid validation code");
                 }
+
+                user.Password = BCrypt.Net.BCrypt.HashPassword(userDto.Password);
+                user.Restore = false;
+
+                if (!Repository.UpdatePasswordUser(user))
+                {
+                    throw new InvalidOperationException("Failed to update user password");
+                }
+
+                await UnitOfWork.SaveChanges();
+
+                await OutputPort.Handle(userDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
             }
         }
+
+
     }
 }

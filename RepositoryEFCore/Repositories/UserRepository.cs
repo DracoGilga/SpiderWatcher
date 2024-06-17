@@ -47,5 +47,15 @@ namespace RepositoryEFCore.Repositories
            u.Confirmation == true);
         }
 
+        public int ReadUserXEmail(string email)
+        {
+            var user = Context.Users.FirstOrDefault(u => u.Email == email);
+            if (user == null)
+            {
+                throw new Exception("User not found.");
+            }
+            return user.UserId;
+        }
+
     }
 }

@@ -12,6 +12,7 @@ namespace Entities.Interface
         IEnumerable<User> ReadAllUsers();
         bool UpdatePasswordUser(User user);
         bool UpgradeUser(User user);
-        User LoginUser(string userName);         
+        User LoginUser(string userName);
+        int ReadUserXEmail(string email);
     }
 }

@@ -25,6 +25,8 @@ namespace Presenters.DependencyContainers
                 UpdateUserPresenter>();
             services.AddScoped<IUpgradeUserOutputPort,
                 UpgradeUserPresenter>();
+            services.AddScoped<IRecoverPasswordOutputPort,
+                RecoverPasswordPresenter>();
 
             return services;
         }
