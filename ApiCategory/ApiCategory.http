@@ -1,5 +1,5 @@
-@ApiCategory_HostAddress = http://localhost:5004
-//@ApiCategory_HostAddress = https://apispiderwatchercategory.azurewebsites.net
+//@ApiCategory_HostAddress = http://localhost:5004
+@ApiCategory_HostAddress = https://apispiderwatchercategory.azurewebsites.net
 
 GET {{ApiCategory_HostAddress}}/weatherforecast/
 Accept: application/json

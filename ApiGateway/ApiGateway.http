@@ -1,4 +1,6 @@
-@ApiGateway_HostAddress = http://localhost:8088
+//@ApiGateway_HostAddress = http://localhost:8088
+@ApiGateway_HostAddress = https://apigatewaysw.azurewebsites.net
+
 
 GET {{ApiGateway_HostAddress}}/weatherforecast/
 Accept: application/json

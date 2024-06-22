@@ -1,5 +1,5 @@
-@Api_HostAddress =http://localhost:8084
-//@ApiHistoryPlayback_HostAddress = https://apispiderwatcherhistoryplayback.azurewebsites.net
+//@Api_HostAddress =http://localhost:8084
+@ApiHistoryPlayback_HostAddress = https://apispiderwatcherhistoryplayback.azurewebsites.net
 
 GET {{ApiHistoryPlayback_HostAddress}}/weatherforecast/
 Accept: application/json
