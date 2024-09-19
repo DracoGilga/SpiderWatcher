@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var jwtSettings = builder.Configuration.GetSection("JWTSettings").Get<JWTSettings>();
-builder.Services.AddSingleton(jwtSettings)
+builder.Services.AddSingleton(jwtSettings);
 
 var key = Encoding.ASCII.GetBytes(jwtSettings.Key);
 builder.Services.AddAuthentication(options =>
