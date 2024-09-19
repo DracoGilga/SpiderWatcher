@@ -1,14 +1,14 @@
-name: Compilar e implementar la aplicación de .NET Core en la aplicación web ApiSpiderWatcherHistoryplayback
+name: Compilar e implementar la aplicación de .NET Core en la aplicación web ApiUser20240919141944
 on:
   push:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: ApiSpiderWatcherHistoryplayback
-  AZURE_WEBAPP_PACKAGE_PATH: ApiHistoryPlayback\publish
+  AZURE_WEBAPP_NAME: ApiUser20240919141944
+  AZURE_WEBAPP_PACKAGE_PATH: ApiUser\publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
-  WORKING_DIRECTORY: ApiHistoryPlayback
+  WORKING_DIRECTORY: ApiUser
 jobs:
   build:
     runs-on: windows-latest
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.ApiSpiderWatcherHistoryplayback_1D4E }}
+        publish-profile: ${{ secrets.ApiUser20240919141944_A43D }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
